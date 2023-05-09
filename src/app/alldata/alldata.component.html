@@ -1,0 +1,117 @@
+<section class="hakukentta" >
+
+    <input
+    type="text"
+    [(ngModel)]="term"
+    class="searchTerm"
+    placeholder="kirjoita hakusana.."/>
+
+  <!--buttons events-->
+    <button (click)="changeTermHeavyMetal()" class="btn button-pink">Heavy Metal</button>
+    <button (click)="changeTermRock()" class="btn button-pink">Rock</button>
+    <button (click)="changeTermHiphop()" class="btn button-pink">Hip Hop</button>
+    <button (click)="changeTermEducation()" class="btn button-pink">Education</button>
+    <button (click)="changeTermGeneral()" class="btn button-pink">General</button>
+  <!--buttons places-->
+    <button (click)="changeTermBookClubs()" class="btn button-violet">Book clubs</button>
+    <button (click)="changeTermShopping()" class="btn button-violet">Shopping</button>
+    <button (click)="changeTermRestaurantsAndCafes()" class="btn button-violet">Restaurants & Cafes</button>
+    <button (click)="changeTermSights()" class="btn button-violet">Sights & Attractions</button>
+  <!--buttons activities-->
+  <button (click)="changeTermNature()" class="btn button-green">Nature</button>
+  <button (click)="changeTermSauna()" class="btn button-green">Sauna</button>
+  <button (click)="changeTermDaytrip()" class="btn button-green">Daytrip</button>
+  <button (click)="changeTermHistory()" class="btn button-green">History</button>
+<!--buttons dates-->
+<button class="btn button-outline-orange" type="submit" (click)="changeToday()"
+>{{currentDate | date:'dd.MM.yyyy'}} Tänään</button>
+
+<button class="btn button-outline-orange" type="submit" (click)="changeToday1()"
+>{{tomorrowDate | date:'dd.MM.yyyy'}} Huomenna</button>
+
+<button class="btn button-outline-orange" type="submit" (click)="changeToday2()"
+>{{tomorrow2Date | date:'dd.MM.yyyy'}} Ylihuomenna</button>
+
+<button (click)="changeReset()" class="btn button-outline-violet">Kaikki</button>
+
+
+</section>
+
+
+
+<section class="alldata">
+
+<article>
+    <h2>Places</h2>
+    <button (click)="moreplaces = !moreplaces" class="btn btn-primary">{{ moreplaces ? 'Vähemmän':'Lataa lisää' }}</button> 
+    <div>
+        <ng-container *ngFor="let place of placeList.data | filter: term; index as i">
+          <div *ngIf="i<7 || moreplaces" class="card border-primary">
+
+            <div class="card-header">{{place.name?.fi}}</div>
+            <ul class="list-group list-group-flush">
+                <li class="list-group-item">{{ place.location.address?.street_address }}</li>
+                <li class="list-group-item"> {{ place.location.address?.postal_code }}, {{ place.location.address?.locality }} </li>
+            </ul>
+            <span *ngIf="place?.info_url?.length!">
+              <a href="{{ place?.info_url }}" class="btn btn-outline-primary">Lue lisää</a>
+            </span>
+          </div>
+        </ng-container>
+      </div>
+      <button (click)="moreplaces = !moreplaces" class="btn btn-primary">{{ moreplaces ? 'Vähemmän':'Lataa lisää' }}</button> 
+
+    </article>
+
+
+
+    <article>
+        <h2>Events</h2>
+        <button (click)="moreevents = !moreevents" class="btn btn-primary">{{ moreevents ? 'Vähemmän':'Lataa lisää' }}</button> 
+        <div>
+            <ng-container *ngFor="let event of eventList.data | filter: term; index as i">
+              <div *ngIf="i<7 || moreevents" class="card border-success">
+
+                <div class="card-header">{{event.name?.fi}}</div>
+                <ul class="list-group list-group-flush">
+                  <li class="list-group-item"> {{ event.event_dates?.starting_day | date:'MMMM d, y, H:mm' }}</li>
+                    <li class="list-group-item">{{ event.location.address?.street_address }}</li>
+                    <li class="list-group-item"> {{ event.location.address?.postal_code }}, {{ event.location.address?.locality }} </li>
+                </ul>
+                <span *ngIf="event?.info_url?.length!">
+                  <a href="{{ event?.info_url }}" class="btn btn-outline-primary">Lue lisää</a>
+                </span>
+              </div>
+            </ng-container>
+          </div>
+          <button (click)="moreevents = !moreevents" class="btn btn-primary">{{ moreevents ? 'Vähemmän':'Lataa lisää' }}</button>  
+    </article>
+
+    <article>
+        <h2>Activities</h2>
+        <button (click)="moreactivity = !moreactivity" class="btn btn-primary">{{ moreactivity ? 'Vähemmän':'Lataa lisää' }}</button> 
+        <div>
+            <ng-container *ngFor="let activity of activityList.data | filter: term; index as i">
+              <div *ngIf="i<7 || moreactivity" class="card border-dark">
+
+                <div class="card-header">{{activity.name?.fi}}</div>
+                <ul class="list-group list-group-flush">
+                    <li class="list-group-item">{{ activity.location.address?.street_address }}</li>
+                    <li class="list-group-item"> {{ activity.location.address?.postal_code }}, {{ activity.location.address?.locality }} </li>
+                </ul>
+                <span *ngIf="activity?.info_url?.length!">
+                  <a href="{{ activity?.info_url }}" class="btn btn-outline-primary">Lue lisää</a>
+                </span>
+              </div>
+            </ng-container>
+          </div>
+          <button (click)="moreactivity = !moreactivity" class="btn btn-primary">{{ moreactivity ? 'Vähemmän':'Lataa lisää' }}</button> 
+    </article>
+    </section>
+
+
+<!--
+<pagination-controls 
+(pageChange)="pp = $event" (pageChange)="pa = $event" (pageChange)="pe = $event" previousLabel="" nextLabel="" class="sivunumerot"></pagination-controls>
+
+-->

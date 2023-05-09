@@ -1,0 +1,35 @@
+
+<body class="signInForm text-center" cz-shortcut-listen="true">
+    
+    <div class="signup__container">
+        <form [formGroup]="signUpForm" (ngSubmit)="signUp()">
+            <h1 class="h3 mb-3 fw-normal">Please fill the fields for registration</h1>
+            <div class="signup__fields info form-floating">
+                <input type="text" placeholder="Name"  class="fields form-control" formControlName="name" >
+                <label for="floatingInput">Name</label>
+            </div>
+            <div class="signup__fields info form-floating">
+                <input type="text" placeholder="Surname"  class="fields form-control" formControlName="surname" >
+                <label for="floatingInput">Surname</label>
+            </div>
+            <div class="signup__fields info form-floating">
+                <input type="email" placeholder="email"  class="fields form-control" formControlName="email" autocomplete="username">
+                <label for="floatingInput">Email address</label>
+            </div>
+
+            <div class= "info form-floating">
+                <input type="password" class="fields form-control" placeholder="password" id="floatingPassword" formControlName="password" autocomplete="current-password">
+                <label for="floatingPassword">Password</label>
+            </div>
+            <button type="submit" class="btn submit__button" >SIGN UP</button>
+        </form>
+        <div class="line__between">
+            <span class="textline">OR</span>
+        </div>
+        <section class="credential">
+            <!-- <a  class="facebook" (click)="signInWithFacebook()"><img class="credential__logo" src="assets/logo/facebook-logo.svg" alt=""></a> -->
+            <a class="google" (click)="signInWithGoogle()"><img class="credential__logo" src="assets/logo/google-color.svg" alt=""> Sign Up with Google</a>
+        </section>
+    </div>
+</body>
+    

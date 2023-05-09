@@ -1,0 +1,16 @@
+<section class="container">
+  <header
+    class="d-flex flex-row align-items-center justify-content-between mb-2 border-bottom"
+  >
+    <section class="d-flex align-items-center title">
+      <img [src]="imgUrl" alt="" class="logo" />
+      <p class="main-title"[routerLink]="['']">Locally</p>
+    </section>
+    
+    <app-weather></app-weather>
+    <article class="login-user">
+      <app-account-icon *ngIf="auth.user | async"></app-account-icon>
+      <button *ngIf="!(auth.user | async)"class="btn login" [routerLink]="['/login']" routerLinkActive="router-link-active" >Login</button>
+    </article>
+  </header>
+</section>

@@ -1,0 +1,10 @@
+.show-list {
+    position: absolute;
+    top: 10%;
+    z-index: 20;
+  }
+
+.off-canvas {
+    background-color: aliceblue;
+    width: 25%;
+}

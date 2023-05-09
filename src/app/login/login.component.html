@@ -1,0 +1,31 @@
+
+<body class="signInForm text-center" cz-shortcut-listen="true">
+    
+    <div class="login__container">
+        <form [formGroup]="loginForm" (ngSubmit)="loginUser()">
+            <h1 class="fw-normal h3 mb-3">Please enter email and password</h1>
+            <section class="signup__fields info form-floating">
+                <input type="email" placeholder="email" id="floatingInput" class="fields form-control" formControlName="email" autocomplete="username">
+                <label for="floatingInput">Email address</label>
+            </section>
+
+            <section class= "info form-floating">
+                <input type="password" class="fields form-control" placeholder="password" id="floatingPassword" formControlName="password" autocomplete="current-password">
+                <label for="floatingPassword">Password</label>
+            </section>
+            <section class="flex-forgot-register">
+                <a href="">Forgot password?</a> 
+                <a routerLink="/sign-up" ariaCurrentWhenActive="page" >Create account</a>
+            </section>
+            <button type="submit" class="btn submit__button" >LOGIN</button>
+        </form>
+        <div class="line__between">
+            <span class="textline">OR</span>
+        </div>
+        <section class="credential">
+            <!-- <a class="facebook" (click)="this.authService.signInWithFacebook()"><img class="credential__logo" src="assets/logo/facebook-logo.svg" alt=""></a> -->
+            <a class="google" (click)="this.authService.signInWithGoogle()" ><img class="credential__logo" src="assets/logo/google-color.svg" alt="">Sign In with  Google</a>
+        </section>
+    </div>
+</body>
+    

@@ -1,0 +1,100 @@
+body{
+    box-sizing: border-box;
+}
+.login__container{
+    width: 400px;
+    margin: 3rem auto 0;
+}
+
+.signup__fields{
+    display: flex;
+    flex-direction: column;
+}
+.fields{
+    margin: 0 auto ;
+    border: 1px solid #bebebe;
+    border-radius: 40px;
+    margin-bottom: 1.5rem;
+}
+
+.line__between{
+    display: flex;
+    flex-direction: row;
+    margin: 1rem auto;
+    justify-content: space-around;
+}
+
+.textline:after,
+.textline:before {
+  content: "\00a0\00a0\00a0\00a0\00a0\00a0\00a0\00a0\00a0\00a0\00a0\00a0\00a0\00a0\00a0\00a0\00a0\00a0\00a0\00a0\00a0\00a0\00a0\00a0\00a0\00a0\00a0\00a0\00a0\00a0";
+  text-decoration: line-through;
+  color: #bdbdbd;
+  margin: 0 2rem;
+}
+.submit__button{
+    width: 100%;
+    margin: 1rem auto;
+    padding: 12px;
+    border-radius: 24px;
+    background-color: #5ebc2a;
+}
+.line__between h6{
+    font-size: 1rem;
+    font-weight: 300;
+    color: #bebebe;
+    margin: 0; 
+}
+.credential{
+    display: flex;
+    justify-content: space-around;
+    max-width: 400px;
+    margin: 0 auto;
+}
+.credential a{
+    background-color: white;
+    padding:5px;
+    text-decoration: none;
+}
+/* .apple{
+    border: 3px solid #000000;
+    border-radius: 50%;
+}
+.facebook{
+    border: 3px solid #3b5998;
+    border-radius: 50%;
+} */
+.google{
+    border: 3px solid #E24134;
+    border-radius: 24px;
+    width: 100%;
+}
+
+.credential__logo{
+    width:30px;
+    height: 30px; 
+    vertical-align: middle;
+    margin-right: 2rem;
+}
+.flex-forgot-register{
+    display: flex;
+    justify-content: space-between;
+    padding: 0 1rem
+}
+
+
+@media only screen and (max-width: 425px) {
+    .login__container{
+        width: 90%;
+        margin: 3rem auto 0;
+    } 
+
+    .textline:after,
+    .textline:before {
+      content: "\00a0\00a0\00a0\00a0\00a0\00a0\00a0\00a0\00a0\00a0\00a0\00a0\00a0\00a0\00a0\00a0\00a0";
+      text-decoration: line-through;
+      color: #bdbdbd;
+    } 
+}
+
+
+

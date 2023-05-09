@@ -1,0 +1,371 @@
+
+/*
+figure {
+    width: 100%;
+    border: black solid 1px; 
+    padding: 0.1rem;
+}    
+figure img {
+    max-width: 100%;   
+}
+
+.small-img {
+    width: 20%;
+}
+*/
+/*BUTTONIEN VÄRIT*/
+
+/* USE .BTN class and these colors*/
+/* BUTTON VIOLET */
+.button-violet {
+  background-color: #8143c2;
+  color: white;
+}
+
+.button-violet:hover {
+  opacity: 0.9;
+  color: white;
+}
+
+.button-outline-violet {
+  border: 1px #8143c2 solid;
+  color: #8143c2;
+}
+
+.button-outline-violet:hover {
+  background-color: #8143c2;
+  color: white;
+}
+/*Button Orange*/
+.button-orange {
+  background-color: #ff9902;
+  color: white;
+}
+
+.button-orange:hover {
+  opacity: 0.9;
+  color: white;
+}
+
+.button-outline-orange {
+  border: 1px #ff9902 solid;
+  color: #ff9902;
+}
+
+.button-outline-orange:hover {
+  background-color: #ff9902;
+  color: white;
+}
+/*Button Pink*/
+.button-pink {
+  background-color: #f6aaa3;
+  color: white;
+}
+
+.button-pink:hover {
+  opacity: 0.9;
+  color: white;
+}
+
+.button-outline-pink {
+  border: 1px #f6aaa3 solid;
+  color: #f6aaa3;
+}
+
+.button-outline-pink:hover {
+  background-color: #f6aaa3;
+  color: white;
+}
+/*button green*/
+.button-green {
+  background-color: #5ebc2a;
+  color: white;
+}
+
+.button-green:hover {
+  opacity: 0.9;
+  color: black;
+  border: 1px #5ebc2a solid;
+
+}
+
+.button-outline-green {
+  border: 1px #5ebc2a solid;
+  color: #5ebc2a;
+}
+
+.button-outline-green:hover {
+  background-color: #5ebc2a;
+  color: white;
+}
+
+/*BUTTONS END*/
+
+
+
+
+
+ul {
+    list-style: none;
+}
+
+.hakukentta {
+  background-color: transparent;
+  border: 1px black solid;
+  padding-bottom: 4px;
+}
+
+input {
+  width: 260px;
+  height: 35px;
+  margin-left: 3px;
+  margin-right: 1%;
+  margin-top: 1%;
+  border-radius: 10px;
+}
+input:hover {
+  border: 1px black solid;
+}
+
+button, .btn {
+margin: 3px;
+}
+
+
+.haenappi {
+    border-radius: 5px;
+    height: 35px;
+    width: 125px;
+    margin: 0.5%;
+    background-color: transparent;
+}
+.haenappi:hover {
+    border: 2px rgb(104, 104, 104) solid;
+}
+
+button {
+    margin-left: 3px;
+}
+
+
+
+
+/*GRID KORTIT*/
+.gridcards {
+    display: grid;
+    grid-template-columns: auto auto auto auto;
+    background-color: #f6f6e9;
+    padding: 10px;
+}
+
+.eventcard {
+    margin: 1%;
+}
+
+h1, h2, h3, h4, h5, p, a {
+    font-family: Arial, Helvetica, sans-serif;
+}
+ 
+tbody tr:nth-child(odd) {
+    background: #eee;
+}
+caption {
+    font-size: 0.8rem;
+}
+figure {
+    width: 100%;
+   /* border: black solid 1px; */
+    padding: 0.1rem;
+}    
+figure img {
+    max-width: 100%;   
+}
+
+.small-img {
+    width: 20%;
+}
+
+article {
+    --img-scale: 1.001;
+    --title-color: black;
+    --link-icon-translate: -20px;
+    --link-icon-opacity: 0;
+    position: relative;
+    border-radius: 16px;
+    box-shadow: none;
+    background: #fff;
+    transform-origin: center;
+    transition: all 0.4s ease-in-out;
+    overflow: hidden;
+  }
+  
+  article a::after {
+    position: absolute;
+    inset-block: 0;
+    inset-inline: 0;
+    cursor: pointer;
+    content: "";
+  }
+  
+  /* basic article elements styling */
+  article h2 {
+    margin: 0 0 18px 0;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 1.9rem;
+    letter-spacing: 0.06em;
+    color: var(--title-color);
+    transition: color 0.3s ease-out;
+  }
+  
+  figure {
+    margin: 0;
+    padding: 0;
+    aspect-ratio: 16 / 9;
+    overflow: hidden;
+  }
+  
+  article img {
+    max-width: 100%;
+    transform-origin: center;
+    transform: scale(var(--img-scale));
+    transition: transform 0.4s ease-in-out;
+  }
+  
+  .article-body {
+    padding: 24px;
+  }
+  
+  article a {
+    display: inline-flex;
+    align-items: center;
+    text-decoration: none;
+    color: black;
+  }
+  
+  article a:focus {
+    outline: 1px dotted #8143c2;
+  }
+  
+  article a .icon {
+    min-width: 24px;
+    width: 24px;
+    height: 24px;
+    margin-left: 5px;
+    transform: translateX(var(--link-icon-translate));
+    opacity: var(--link-icon-opacity);
+    transition: all 0.3s;
+  }
+  
+  /* using the has() relational pseudo selector to update our custom properties */
+  article:has(:hover, :focus) {
+    --img-scale: 1.1;
+    --title-color: #8143c2;
+    --link-icon-translate: 0;
+    --link-icon-opacity: 1;
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 10px 36px 0px, rgba(0, 0, 0, 0.06) 0px 0px 0px 1px;
+  }
+  
+  
+  /************************ 
+  Generic layout (demo looks)
+  **************************/
+  
+  *,
+  *::before,
+  *::after {
+    box-sizing: border-box;
+  }
+  
+  body {
+    margin: 0;
+    padding: 48px 0;
+    font-family: "Figtree", sans-serif;
+    font-size: 1.2rem;
+    line-height: 1.6rem;
+    background-image: linear-gradient(45deg, #7c9885, #b5b682);
+    min-height: 100vh;
+  }
+  
+  .articles {
+    display: grid;
+    max-width: 1200px;
+    margin-inline: auto;
+    padding-inline: 24px;
+    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+    gap: 24px;
+  }
+  
+  @media screen and (max-width: 960px) {
+    article {
+      container: card/inline-size;
+    }
+    .article-body p {
+      display: none;
+    }
+  }
+  
+  @container card (min-width: 380px) {
+    .article-wrapper {
+      display: grid;
+      grid-template-columns: 100px 1fr;
+      gap: 16px;
+    }
+    .article-body {
+      padding-left: 0;
+    }
+    figure {
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
+    }
+    figure img {
+      height: 100%;
+      aspect-ratio: 1;
+      object-fit: cover;
+    }
+  }
+  
+  .sr-only:not(:focus):not(:active) {
+    clip: rect(0 0 0 0); 
+    clip-path: inset(50%);
+    height: 1px;
+    overflow: hidden;
+    position: absolute;
+    white-space: nowrap; 
+    width: 1px;
+  }
+
+
+
+  .sivunumerot ::ng-deep .ngx-pagination .current {
+    background: #ff9902;
+    border-radius: 4px;
+  }
+
+/*TABLETTIA PIENEMPI KORTIT 1*/
+/* Mobile CSS rules */ 
+@media only screen and (max-width: 425px) 
+{  
+/*GRID KORTIT*/
+.gridcards {
+   display: flex;
+   flex-direction: column;
+}
+}
+
+/*Tabletissa 2 korttia*/
+ @media only screen and (min-width: 426px) and (max-width: 768px) { 
+    
+/*GRID KORTIT*/
+.gridcards {
+    display: grid;
+    grid-template-columns: auto auto;
+    background-color: #eaeaea;
+    padding: 5px;
+}
+
+
+}
+
+
+

@@ -1,0 +1,25 @@
+[{
+  "context": ["/events"],
+  "target": "https://open-api.myhelsinki.fi/v1/events/",
+  "secure": false,
+  "logLevel": "debug",
+  "changeOrigin": true,
+  "pathRewrite": {"^/events" : ""}
+},
+{
+  "context": ["/places"],
+  "target": "https://open-api.myhelsinki.fi/v1/places/",
+  "secure": false,
+  "logLevel": "debug",
+  "changeOrigin": true,
+  "pathRewrite": {"^/places" : ""}
+},
+{
+  "context": ["/activities"],
+  "target": "https://open-api.myhelsinki.fi/v1/activities/",
+  "secure": false,
+  "logLevel": "debug",
+  "changeOrigin": true,
+  "pathRewrite": {"^/activities" : ""}
+}]
+

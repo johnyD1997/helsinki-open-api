@@ -1,0 +1,153 @@
+.hakukentta {
+    background-color: transparent;
+    border: 1px black solid;
+    padding-bottom: 4px;
+}
+
+input {
+    width: 260px;
+    height: 35px;
+    margin-left: 3px;
+    margin-right: 1%;
+    margin-top: 1%;
+    border-radius: 10px;
+}
+input:hover {
+    border: 1px black solid;
+}
+
+button, .btn {
+  margin: 3px;
+}
+
+/*BUTTONIEN VÄRIT*/
+
+/* USE .BTN class and these colors*/
+/* BUTTON VIOLET */
+.button-violet {
+    background-color: #8143c2;
+    color: white;
+}
+
+.button-violet:hover {
+    opacity: 0.9;
+    color: black;
+    border: 1px #8143c2 solid;
+
+}
+
+.button-outline-violet {
+    border: 1px #8143c2 solid;
+    color: #8143c2;
+}
+
+.button-outline-violet:hover {
+    background-color: #8143c2;
+    color: white;
+}
+/*Button Orange*/
+.button-orange {
+    background-color: #ff9902;
+    color: white;
+}
+
+.button-orange:hover {
+    opacity: 0.9;
+    color: black;
+    border: 1px #ff9902 solid;
+
+}
+
+.button-outline-orange {
+    border: 1px #ff9902 solid;
+    color: #ff9902;
+}
+
+.button-outline-orange:hover {
+    background-color: #ff9902;
+    color: white;
+}
+/*Button Pink*/
+.button-pink {
+    background-color: #f6aaa3;
+    color: white;
+}
+
+.button-pink:hover {
+    opacity: 0.9;
+    color: black;
+    border: 1px #f6aaa3 solid;
+
+}
+
+.button-outline-pink {
+    border: 1px #f6aaa3 solid;
+    color: #f6aaa3;
+}
+
+.button-outline-pink:hover {
+    background-color: #f6aaa3;
+    color: white;
+}
+/*button green*/
+.button-green {
+    background-color: #5ebc2a;
+    color: white;
+}
+
+.button-green:hover {
+    opacity: 0.9;
+    color: black;
+    border: 1px #5ebc2a solid;
+
+}
+
+.button-outline-green {
+    border: 1px #5ebc2a solid;
+    color: #5ebc2a;
+}
+
+.button-outline-green:hover {
+    background-color: #5ebc2a;
+    color: white;
+}
+
+/*BUTTONS END*/
+
+
+h3 {font-size: 1.2rem;}
+.card { 
+    margin: 3px;
+    width: 22rem;
+}
+
+.card-header {
+    font-weight: 600;
+    font-size: 1rem;
+    font-style: italic;
+}
+
+
+.alldata{
+    display: flex;
+    flex-direction: row;
+}
+
+.sivunumerot ::ng-deep .ngx-pagination .current {
+    background: #ff9902;
+    border-radius: 4px;
+  }
+
+/* Mobile CSS rules */ 
+@media only screen and (max-width: 425px) 
+{ 
+    .alldata{
+        display: flex;
+        flex-direction: column;
+    }
+    .card { 
+        margin: 3px;
+        width: 100%;
+    }
+}
+

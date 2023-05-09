@@ -1,0 +1,42 @@
+.logo {
+  width: 8%;
+  height: auto;
+}
+
+.main-title {
+  color: #5ebc5e;
+  font-size: 2rem;
+    margin: 0;
+}
+
+.title {
+  width: 50%;
+}
+
+.login {
+  width: 100%;
+  padding: 0.5rem;
+  font-size: 1.2rem;
+  border: none;
+  border-radius: 10px;
+  background-color: #5ebc5e;
+  color: beige;
+}
+
+@media only screen and (max-width: 768px) {
+  .logo {
+    width: 12%;
+    height: auto;
+  }
+
+  .main-title {
+    margin: 0;
+    font-size: 1.5rem
+  }
+
+  .login {
+    width: 100%;
+    padding: 0.2rem;
+    font-size: 1rem;
+  }
+}

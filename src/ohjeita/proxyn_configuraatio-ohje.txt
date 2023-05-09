@@ -1,0 +1,63 @@
+CORS ongelman ohitus Proxyn avulla.
+Luo ensin proxy.conf.json tiedosto src -kansioon!
+*************************************************
+
+
+YHDEN API:n haku ja tiedostopolku /api servicessä.
+
+{
+  "/api": {
+    "target": "https://open-api.myhelsinki.fi/v1/events/",
+    "secure": false,
+    "pathRewrite": {
+      "^/api": ""
+    },
+    "changeOrigin": true
+  }
+}
+
+
+
+Useamman API:n haku ja tiedostopolku esim. /events servicessä.
+
+[{
+  "context": ["/events"],
+  "target": "https://open-api.myhelsinki.fi/v1/events/",
+  "secure": false,
+  "logLevel": "debug",
+  "changeOrigin": true,
+  "pathRewrite": {"^/events" : ""}
+},
+{
+  "context": ["/places"],
+  "target": "https://open-api.myhelsinki.fi/v1/places/",
+  "secure": false,
+  "logLevel": "debug",
+  "changeOrigin": true,
+  "pathRewrite": {"^/places" : ""}
+},
+{
+  "context": ["/activities"],
+  "target": "https://open-api.myhelsinki.fi/v2/activities",
+  "secure": false,
+  "logLevel": "debug",
+  "changeOrigin": true,
+  "pathRewrite": {"^/activities" : ""}
+}]
+
+
+HUOM! Muista liittää proxy.conf.json tiedosto angular.json tiedostoon!
+OIKEA KOHTA angular.json tiedostossa n. rivi 60 kohdilla.
+**********************************************************************
+
+...
+...
+        "serve": {
+          "options": {"proxyConfig": "src/proxy.conf.json"},
+          "builder": "@angular-devkit/build-angular:dev-server",
+          "configurations": {
+            "production": {
+              "browserTarget": "HelsinkiOpen:build:production"
+            },      
+...
+...          

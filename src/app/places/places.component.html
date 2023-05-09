@@ -1,0 +1,144 @@
+
+<section class="hakukentta" >
+    <input
+    type="text"
+    [(ngModel)]="term"
+    class="searchTerm"
+    placeholder="kirjoita hakusana.."
+   />
+
+   <button (click)="changeTermBookClubs()" class="btn button-violet">Book clubs</button>
+   <button (click)="changeTermShopping()" class="btn button-violet">Shopping</button>
+   <button (click)="changeTermRestaurantsAndCafes()" class="btn button-violet">Restaurants & Cafes</button>
+   <button (click)="changeTermSights()" class="btn button-violet">Sights & Attractions</button>
+   <button (click)="changeReset()" class="btn button-outline-violet">Kaikki</button>
+
+</section>
+
+<section class="gridcards">
+
+    <article class="eventcard" *ngFor="let place of PlaceList?.data | filter: term | paginate: { itemsPerPage: 12, currentPage: p }">
+        <div class="article-wrapper" >
+            <div class="article-body">
+
+                <span><svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" fill="currentColor" class="bi bi-heart" viewBox="0 0 16 16">
+                    <path d="m8 2.748-.717-.737C5.6.281 2.514.878 1.4 3.053c-.523 1.023-.641 2.5.314 4.385.92 1.815 2.834 3.989 6.286 6.357 3.452-2.368 5.365-4.542 6.286-6.357.955-1.886.838-3.362.314-4.385C13.486.878 10.4.28 8.717 2.01L8 2.748zM8 15C-7.333 4.868 3.279-3.04 7.824 1.143c.06.055.119.112.176.171a3.12 3.12 0 0 1 .176-.17C12.72-3.042 23.333 4.867 8 15z"/>
+                  </svg></span>
+                
+           
+                
+
+
+                  <hr>
+            <h2>{{ place?.name?.fi }} 
+              <a href="{{ place?.info_url }}" class="read-more"> 
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-box-arrow-up-right" viewBox="0 0 16 16">
+                    <path fill-rule="evenodd" d="M8.636 3.5a.5.5 0 0 0-.5-.5H1.5A1.5 1.5 0 0 0 0 4.5v10A1.5 1.5 0 0 0 1.5 16h10a1.5 1.5 0 0 0 1.5-1.5V7.864a.5.5 0 0 0-1 0V14.5a.5.5 0 0 1-.5.5h-10a.5.5 0 0 1-.5-.5v-10a.5.5 0 0 1 .5-.5h6.636a.5.5 0 0 0 .5-.5z"/>
+                    <path fill-rule="evenodd" d="M16 .5a.5.5 0 0 0-.5-.5h-5a.5.5 0 0 0 0 1h3.793L6.146 9.146a.5.5 0 1 0 .708.708L15 1.707V5.5a.5.5 0 0 0 1 0v-5z"/>
+                  </svg>
+                </a></h2>
+          
+   
+            <h4>
+                <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" fill="currentColor" class="bi bi-geo-alt" viewBox="0 0 16 16">
+                    <path d="M12.166 8.94c-.524 1.062-1.234 2.12-1.96 3.07A31.493 31.493 0 0 1 8 14.58a31.481 31.481 0 0 1-2.206-2.57c-.726-.95-1.436-2.008-1.96-3.07C3.304 7.867 3 6.862 3 6a5 5 0 0 1 10 0c0 .862-.305 1.867-.834 2.94zM8 16s6-5.686 6-10A6 6 0 0 0 2 6c0 4.314 6 10 6 10z"/>
+                    <path d="M8 8a2 2 0 1 1 0-4 2 2 0 0 1 0 4zm0 1a3 3 0 1 0 0-6 3 3 0 0 0 0 6z"/>
+                  </svg>
+                
+                {{ place.location.address?.street_address }}, {{ place.location.address?.postal_code }}, 
+                {{ place.location.address?.locality }}</h4>
+                <hr>
+
+            <div class="col-20">
+                <p >
+                    {{ place.description?.body | slice:0:100}}..
+                </p>  </div>
+
+         
+
+
+                        
+                <table class="table table-borderless"  *ngIf="place?.opening_hours?.hours">
+ 
+                    <tbody>
+                      <tr>
+                            <th scope="row">Mon</th>
+                            <td>{{ place.opening_hours.hours[0]?.opens | slice:0:5 }}</td>
+                            <td>{{ place.opening_hours.hours[0]?.closes | slice:0:5 }}</td> 
+                      </tr>
+                      <tr>
+                            <th scope="row">Tue</th>
+                            <td>{{ place.opening_hours.hours[1]?.opens | slice:0:5 }}</td>
+                            <td>{{ place.opening_hours.hours[1]?.closes | slice:0:5 }}</td> 
+                        </tr>
+                        <tr>
+                            <th scope="row">Wed</th>
+                            <td>{{ place.opening_hours.hours[2]?.opens | slice:0:5 }}</td>
+                            <td>{{ place.opening_hours.hours[2]?.closes | slice:0:5 }}</td> 
+                        </tr>
+                        <tr>
+                            <th scope="row">Thu</th>
+                            <td>{{ place.opening_hours.hours[3]?.opens | slice:0:5 }}</td>
+                            <td>{{ place.opening_hours.hours[3]?.closes | slice:0:5 }}</td> 
+                        </tr>
+                        <tr>
+                            <th scope="row">Fri</th>
+                            <td>{{ place.opening_hours.hours[4]?.opens | slice:0:5 }}</td>
+                            <td>{{ place.opening_hours.hours[4]?.closes | slice:0:5 }}</td> 
+                        </tr>
+                        <tr>
+                            <th scope="row">Sat</th>                           
+                             <td>{{ place.opening_hours.hours[5]?.opens | slice:0:5 }}</td>
+                            <td>{{ place.opening_hours.hours[5]?.closes | slice:0:5 }}</td> 
+                        </tr>
+                        <tr>
+                            <th scope="row">Sun</th>                           
+                            <td>{{ place.opening_hours.hours[6]?.opens | slice:0:5 }}</td>
+                            <td>{{ place.opening_hours.hours[6]?.closes | slice:0:5 }}</td> 
+                      </tr>
+                    </tbody>
+                </table>
+               
+
+    <hr>
+    <!--
+            <p>{{ place?.id }}</p>
+     
+                <p>Location LAT: {{ place.location?.lat }}</p>
+                <p>Location LON: {{ place.location?.lon }}</p>
+            <p>
+                -->
+                <p>
+                {{ place.description?.intro }}
+            </p>
+            <p> <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" fill="currentColor" class="bi bi-hash" viewBox="0 0 16 16">
+                <path d="M8.39 12.648a1.32 1.32 0 0 0-.015.18c0 .305.21.508.5.508.266 0 .492-.172.555-.477l.554-2.703h1.204c.421 0 .617-.234.617-.547 0-.312-.188-.53-.617-.53h-.985l.516-2.524h1.265c.43 0 .618-.227.618-.547 0-.313-.188-.524-.618-.524h-1.046l.476-2.304a1.06 1.06 0 0 0 .016-.164.51.51 0 0 0-.516-.516.54.54 0 0 0-.539.43l-.523 2.554H7.617l.477-2.304c.008-.04.015-.118.015-.164a.512.512 0 0 0-.523-.516.539.539 0 0 0-.531.43L6.53 5.484H5.414c-.43 0-.617.22-.617.532 0 .312.187.539.617.539h.906l-.515 2.523H4.609c-.421 0-.609.219-.609.531 0 .313.188.547.61.547h.976l-.516 2.492c-.008.04-.015.125-.015.18 0 .305.21.508.5.508.265 0 .492-.172.554-.477l.555-2.703h2.242l-.515 2.492zm-1-6.109h2.266l-.515 2.563H6.859l.532-2.563z"/>
+              </svg>
+              <br>
+              <span class="badge bg-primary badge-pill">
+                {{ place.tags[0]?.name }}
+              </span>
+                <br> 
+                <span class="badge bg-secondary badge-pill" *ngIf="place.tags[1]?.name.length!">  
+                {{ place.tags[1]?.name }}
+                </span>
+                <br>
+                <span class="badge bg-warning badge-pill" *ngIf="place.tags[2]?.name.length!">  
+                  {{ place.tags[2]?.name }}
+                  </span>
+                  <br>
+                  <span class="badge bg-info badge-pill" *ngIf="place.tags[3]?.name.length!">  
+                    {{ place.tags[3]?.name }}
+                    </span>
+            </p>
+
+            
+          </div>
+        </div>
+       
+      </article>
+    
+    </section>
+
+
+<pagination-controls (pageChange)="p = $event" class="sivunumerot"></pagination-controls>
