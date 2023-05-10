@@ -67,7 +67,7 @@ stages:
           - task: AzureWebApp@1
             displayName: 'Deploy App Service'
             inputs:
-              azureSubscription: 'IvanDubinnikovConnectionService'
+              azureSubscription: 'IvanDubinnikovServiceConnection'
               appType: 'webApp'
               appName: 'weatherapp'
               package: '$(Pipeline.Workspace)/drop/$(Build.BuildId).zip'
