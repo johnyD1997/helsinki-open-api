@@ -23,7 +23,7 @@ stages:
         displayName: 'Install Node.js 16.x'
 
       - script: |
-          cd $(System.DefaultWorkingDirectory)'
+          cd '$(System.DefaultWorkingDirectory)'
           npm install -g @angular/cli
           npm install
           ng build --configuration production --aot
