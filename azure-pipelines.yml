@@ -69,6 +69,6 @@ stages:
             inputs:
               azureSubscription: 'IvanDubinnikovServiceConnection'
               appType: 'webApp'
-              appName: 'weatherapp'
+              appName: 'helsinkiopenapi'
               package: '$(Pipeline.Workspace)/drop/$(Build.BuildId).zip'
               runtimeStack: 'NODE|16-lts'
