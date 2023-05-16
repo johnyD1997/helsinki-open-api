@@ -4,11 +4,8 @@ import { AngularFirestore, AngularFirestoreDocument } from '@angular/fire/compat
 import { Router } from '@angular/router'
 import { User } from 'src/models/user';
 import { GoogleAuthProvider, FacebookAuthProvider } from "@angular/fire/auth";
-import { getAuth, signInWithRedirect } from 'firebase/auth';
 import { CookieService } from 'ngx-cookie-service';
-import firebase from 'firebase/compat/app';
 import {doc, getDoc, getFirestore } from 'firebase/firestore';
-import { ReturnStatement } from '@angular/compiler';
 import { Observable, ReplaySubject, Subject } from 'rxjs';
 
 @Injectable({
@@ -42,6 +39,7 @@ export class AuthService{
         email: user.email
       }
       localStorage.setItem('user', JSON.stringify(newUser))
+      localStorage.setItem('uid', JSON.stringify(newUser.uid))
       this.setUserData(newUser);
     })
     .catch((error)=>{
@@ -59,14 +57,6 @@ export class AuthService{
   }
 
   async getUserData(uid: any){
-  //  return firebase.firestore().collection('users').doc(uid).get().then((doc) =>{
-  //       localStorage.setItem('user', JSON.stringify(doc.data()))
-  //       JSON.parse(localStorage.getItem('user')!);
-  //   })
-
-  // return this.firestore.collection('users').doc(` ${uid}`).get().subscribe((doc)=>{
-  //   localStorage.setItem('user', JSON.stringify(doc.data()))
-  //   })
     const db = getFirestore();
     const docRef = doc(db, 'users', uid);
     const docSnap = await getDoc(docRef);
@@ -102,7 +92,7 @@ export class AuthService{
     return this.afAuth.signInWithEmailAndPassword(email, password).then((res)=>{
       console.log('You are in');
       this.router.navigate(['']);
-      localStorage.setItem('token', res.user?.uid!)
+      localStorage.setItem('uid', res.user?.uid!)
       this.getUserData(res.user?.uid!)
       this.loggedIn.next(true)
     })
@@ -111,6 +101,7 @@ export class AuthService{
   signOut(){
     this.afAuth.signOut().then(()=>{
       this.loggedIn.next(false)
+      localStorage.removeItem('uid')
     })
   }
 

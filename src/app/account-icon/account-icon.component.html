@@ -1,6 +1,6 @@
 <article>
 <a (click)="isVisible = !isVisible">
-<fa-icon *ngIf="(!user.img)"[icon]="facircleuser" class="user-icon" size="2x"></fa-icon> 
+<fa-icon *ngIf="(!user.imgUrl)" [icon]="facircleuser" class="user-icon" size="2x"></fa-icon> 
 <img *ngIf="user.imgUrl" class="avatar" src="{{imgUrl}}" alt="">
 </a>
     <ul class="account-list" *ngIf="isVisible" style="list-style-type: none;">
