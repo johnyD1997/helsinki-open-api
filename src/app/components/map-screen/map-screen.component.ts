@@ -88,7 +88,8 @@ export class MapScreenComponent implements OnInit {
             name: place.name.fi,
             vicinity: `${place.location.address?.street_address}, ${place.location.address?.locality}`,
             photo: place.description.images[0]?.url,
-            userId: JSON.stringify(localStorage.getItem('uid')!)
+            userId: localStorage.getItem('uid')!,
+            url: place.info_url,
           };
           
           let markerContent = document.createElement("div");

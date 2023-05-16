@@ -4,4 +4,5 @@ export interface Place{
     name: string,
     vicinity: string,
     photo: string,
+    url: string,
 }
