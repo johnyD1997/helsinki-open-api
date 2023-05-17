@@ -24,3 +24,26 @@ img {
 .temp {
   width: 95px;
 }
+
+.displayshow {
+  display: none;
+}
+
+@media only screen and (max-width: 768px) {
+  /* For mobile phones: */
+  .display {
+    display: none;
+  }
+
+  .displayshow {
+    display: flex;
+  }
+
+  img {
+    width: 30px;
+  }
+
+  .temp {
+    width: 50px;
+  }
+}
