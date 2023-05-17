@@ -1,7 +1,6 @@
 import { Component } from '@angular/core';
 import { AngularFireAuth } from '@angular/fire/compat/auth';
-import { NavigationEnd, Router } from '@angular/router';
-import { LoginComponent } from 'src/app/login/login.component';
+import {  Router } from '@angular/router';
 
 @Component({
   selector: 'app-header-bar',

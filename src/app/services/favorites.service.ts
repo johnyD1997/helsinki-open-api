@@ -1,24 +1,39 @@
 import { Injectable, OnInit } from '@angular/core';
-import { AngularFirestore, AngularFirestoreDocument } from '@angular/fire/compat/firestore';
-import { environment } from 'src/environments/environment'
-import { initializeApp } from 'firebase/app';
+import { AngularFirestore} from '@angular/fire/compat/firestore';
+import { collectionData, collection } from '@angular/fire/firestore'
+import {  deleteDoc, doc, getFirestore, setDoc } from 'firebase/firestore';
+import { Observable, of } from 'rxjs';
+
+import { Place } from 'src/models/place';
 
 
 @Injectable({
   providedIn: 'root',
 })
-export class FavoritesService implements OnInit {
-  constructor(private afs: AngularFirestore) {}
+export class FavoritesService{
   currentUser: any;
-  app = initializeApp(environment.firebase)
-
-  ngOnInit(): void {
-    this.currentUser = localStorage.getItem('token')!;
-    console.log(this.currentUser)
+  userUid: any;
+  db = getFirestore()
+  
+  
+  constructor(private firestore: AngularFirestore) {
+    this.currentUser = JSON.parse(localStorage.getItem('user')!)
+    this.userUid = this.currentUser.uid;
   }
 
-  addToFavorites(place: any): Promise<void> {
-    const userRef: AngularFirestoreDocument<any> = this.afs.doc(`favorites/${place.placeId}`);
-    return userRef.set(place);
+  addToFavorites(place: any) {
+    const collectionRef = doc(this.db, 'users', this.userUid, 'favorites', place.placeId)
+    setDoc(collectionRef, place)
+  }
+
+  getAllFavorites(): Observable<Place[]>{
+    const userRef = doc(this.db, 'users', this.userUid)
+    const favoritesRef = collection(userRef, 'favorites');
+    return collectionData(favoritesRef, { idField: 'id' }) as Observable<Place[]>
+  }
+
+  deleteFavorite(placeId: string){
+    const docRef = doc(this.db, 'users', this.userUid, 'favorites', placeId)
+    deleteDoc(docRef);
   }
 }

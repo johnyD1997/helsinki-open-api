@@ -42,9 +42,8 @@ export class MapScreenComponent implements OnInit {
   }
 
   addToFavorites(place: Place){
-    this.favoriteService.addToFavorites(place).then(_=> {
-      console.log('Adding to favorite')
-    })
+    this.favoriteService.addToFavorites(place)
+    console.log('Adding to favorite')
   }
 
   showContent(contentType: string) {
@@ -88,7 +87,6 @@ export class MapScreenComponent implements OnInit {
             name: place.name.fi,
             vicinity: `${place.location.address?.street_address}, ${place.location.address?.locality}`,
             photo: place.description.images[0]?.url,
-            userId: localStorage.getItem('uid')!,
             url: place.info_url,
           };
           

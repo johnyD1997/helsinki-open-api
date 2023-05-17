@@ -39,7 +39,7 @@ export class AuthService{
         email: user.email
       }
       localStorage.setItem('user', JSON.stringify(newUser))
-      localStorage.setItem('uid', JSON.stringify(newUser.uid))
+      localStorage.setItem('uid', JSON.stringify(result.user?.uid))
       this.setUserData(newUser);
     })
     .catch((error)=>{
@@ -76,23 +76,12 @@ export class AuthService{
     alert(error.message)
    })
   }
-
-  signInWithFacebook(){
-    return this.afAuth.signInWithPopup(new FacebookAuthProvider)
-    .then(res=>{
-      this.router.navigate(['']);
-      localStorage.setItem('token', JSON.stringify(res.user?.uid))
-    })
-    .catch((error)=>{
-      alert(error.message)
-     })
-  }
-
+  
   login(email: string, password: string): Promise<any>{
     return this.afAuth.signInWithEmailAndPassword(email, password).then((res)=>{
       console.log('You are in');
       this.router.navigate(['']);
-      localStorage.setItem('uid', res.user?.uid!)
+      localStorage.setItem('user', JSON.stringify(res.user!));
       this.getUserData(res.user?.uid!)
       this.loggedIn.next(true)
     })

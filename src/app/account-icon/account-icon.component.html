@@ -5,8 +5,8 @@
 </a>
     <ul class="account-list" *ngIf="isVisible" style="list-style-type: none;">
         <li> {{user.name}}</li>
-        <li><a class="">Account</a></li>
-        <li class=""><a>Favorites</a></li>
+        <li><a>Account</a></li>
+        <li><a [routerLink]="['/favorite']">Favorites</a></li>
         <hr/>
         <li (click)="logout()" class="logout">Logout</li>
     </ul>
