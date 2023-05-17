@@ -47,8 +47,4 @@ export class SignUpComponent {
   signInWithGoogle(){
     this.authService.signInWithGoogle();
   }
-
-  signInWithFacebook(){
-    this.authService.signInWithFacebook();
-  }
 }
