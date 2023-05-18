@@ -1,4 +1,6 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, SimpleChanges } from '@angular/core';
+import { MapScreenComponent } from '../map-screen/map-screen.component';
+import { CarouselComponent } from 'src/app/carousel/carousel.component';
 
 @Component({
   selector: 'app-list-bar',
@@ -6,5 +8,13 @@ import { Component, Input } from '@angular/core';
   styleUrls: ['./list-bar.component.css']
 })
 export class ListBarComponent {
-  @Input() placesList: any[] = [];
+  @Input() placesContent: any[] = [];
+  
+  ngOnChanges(changes: SimpleChanges) {
+    for (let i = 0; i < changes["placesContent"].currentValue.length; i++) {
+      let element = changes["placesContent"].currentValue[i];
+      console.log(element)
+    }
+  }
+
 }

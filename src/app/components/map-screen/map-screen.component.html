@@ -1,16 +1,37 @@
-<section class="container-fluid">
-
-  <div id="map"></div>
-
-  <article class="places d-flex align-content-center">
-      
-    <button class="btn activity" (click)="showContent('activities')">Activities</button>
-    <!-- <button class="btn stadium">Stadiums</button> -->
-    <button class="btn place" (click)="showContent('places')">Places</button>
-    <!-- <button class="btn sight">Sights</button> -->
-    <!-- <button class="btn concert">Concert halls</button> -->
-    <button class="btn event" (click)="showContent('events')">Events</button>
+<section class="screen d-flex justify-content-between">
+  
+  <article [ngStyle]="{
+    width: !isVisible
+      ? '0%'
+      : isVisible
+      ? '30%'
+      : null
+  }">
+    <app-list-bar *ngIf="isVisible" [placesContent]="placesContent"></app-list-bar>
   </article>
 
- 
+  <section class="map-filters"[ngStyle]="{
+    width: !isVisible
+      ? '100%'
+      : isVisible
+      ? '70%'
+      : null
+  }">
+  <div id="map" ></div>
+  
+  <article class="places d-flex">
+    <button
+    class="btn btn-light rounded-start shadow-lg list"
+    (click)="isVisible = !isVisible"
+  >
+    <i class="bi bi-card-list"></i>
+  </button>
+    <button class="btn activity" (click)="showContent('activities')">
+      Activities
+    </button>
+
+    <button class="btn place" (click)="showContent('places')">Places</button>
+    <button class="btn event" (click)="showContent('events')">Events</button>
+  </article>
+</section>
 </section>
