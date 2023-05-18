@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { AngularFireAuth } from '@angular/fire/compat/auth';
+import {  Router } from '@angular/router';
 
 @Component({
   selector: 'app-header-bar',
@@ -8,7 +9,11 @@ import { AngularFireAuth } from '@angular/fire/compat/auth';
 })
 export class HeaderBarComponent {
 imgUrl ='assets/logo.png';
+url: any;
+constructor(public auth: AngularFireAuth , private router: Router){ }
 
-constructor(public auth: AngularFireAuth){}
+  hasRoute(route: string){
+   return this.router.url.includes(route)
+  }
 }
 
