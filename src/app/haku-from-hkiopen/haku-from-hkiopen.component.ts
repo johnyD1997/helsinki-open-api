@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { EventService } from '../event.service';
 import { MatSnackBar, MatSnackBarHorizontalPosition, MatSnackBarVerticalPosition } from '@angular/material/snack-bar';
-
+import { faTurnDown } from '@fortawesome/free-solid-svg-icons';
 
 
 @Component({
@@ -10,6 +10,8 @@ import { MatSnackBar, MatSnackBarHorizontalPosition, MatSnackBarVerticalPosition
   styleUrls: ['./haku-from-hkiopen.component.css']
 })
 export class HakuFromHkiopenComponent implements OnInit {
+
+TurnDown = faTurnDown;
 
 EventList : any;
 p: number = 1;
