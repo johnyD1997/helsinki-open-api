@@ -12,6 +12,7 @@
           *ngIf="place.photo"
           [src]="place.photo"
           class="card-img-top"
+          onerror="this.src='assets/images.jpeg'"
         />
       <div class="card-body">
         <div class="d-flex flex-row justify-content-between">

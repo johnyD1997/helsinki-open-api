@@ -1,0 +1,21 @@
+.my_account{
+    max-width: 800px;
+    width: 100%;
+    margin: auto;
+    background-color: rgb(252, 252, 252);
+    padding: 2rem;
+    border: 1px solid #dbdbdb;
+    border-radius: 10px;
+    box-shadow: 5px 3px 10px 5px #dbdbdb;
+}
+
+.img_container img{
+    max-width: 300px;
+    width: 100%;
+}
+
+.img_container button{
+    max-width: 300px;
+    width: 100%;
+}
+

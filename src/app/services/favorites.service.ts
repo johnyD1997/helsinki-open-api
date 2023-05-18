@@ -18,7 +18,9 @@ export class FavoritesService{
   
   constructor(private firestore: AngularFirestore) {
     this.currentUser = JSON.parse(localStorage.getItem('user')!)
-    this.userUid = this.currentUser.uid;
+    if(this.currentUser !== null){
+      this.userUid = this.currentUser.uid;
+    }
   }
 
   addToFavorites(place: any) {
