@@ -112,6 +112,17 @@ button, .btn {
     color: white;
 }
 
+.btn_favourite {
+    
+    align-self: center;
+    background-color: white;
+    color: #5ebc2a;
+    font-size: 1rem;
+    padding: 0.4rem;
+    border: #5ebc2a solid 1px;
+    border-radius: 10px;
+  }
+
 /*BUTTONS END*/
 
 

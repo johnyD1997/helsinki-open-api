@@ -124,6 +124,17 @@ margin: 3px;
   color: white;
 }
 
+.btn_favourite {
+  width: 100%;
+  align-self: center;
+  background-color: white;
+  color: #5ebc2a;
+  font-size: 1rem;
+  padding: 0.4rem;
+  border: #5ebc2a solid 1px;
+  border-radius: 10px;
+}
+
 /*BUTTONS END*/
 
 
@@ -133,7 +144,7 @@ margin: 3px;
 .gridcards {
     display: grid;
     grid-template-columns: auto auto auto auto;
-    background-color: #f6f6e9;
+    background-color: #fafafa;
     padding: 10px;
 }
 
@@ -176,8 +187,9 @@ article {
     overflow: hidden;
   }
   
+  
   article a::after {
-    position: absolute;
+   position: absolute;
     inset-block: 0;
     inset-inline: 0;
     cursor: pointer;
@@ -212,6 +224,7 @@ article {
     padding: 24px;
   }
   
+  
   article a {
     display: inline-flex;
     align-items: center;
@@ -221,6 +234,7 @@ article {
   
   article a:focus {
     outline: 1px dotted #8143c2;
+
   }
   
   article a .icon {

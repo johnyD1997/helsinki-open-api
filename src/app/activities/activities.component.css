@@ -99,6 +99,17 @@ figure img {
   color: white;
 }
 
+.btn_favourite {
+  width: 100%;
+  align-self: center;
+  background-color: white;
+  color: #5ebc2a;
+  font-size: 1rem;
+  padding: 0.4rem;
+  border: #5ebc2a solid 1px;
+  border-radius: 10px;
+}
+
 /*BUTTONS END*/
 
 
@@ -153,13 +164,13 @@ button {
 /*GRID KORTIT*/
 .gridcards {
     display: grid;
-    grid-template-columns: auto auto auto auto;
+    grid-template-columns: auto auto auto;
     background-color: #f6f6e9;
     padding: 10px;
 }
 
 .eventcard {
-    margin: 1%;
+ margin: 1%;
 }
 
 h1, h2, h3, h4, h5, p, a {

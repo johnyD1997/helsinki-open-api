@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivityService } from '../activity.service';
 import { MatSnackBar, MatSnackBarHorizontalPosition, MatSnackBarVerticalPosition } from '@angular/material/snack-bar';
-
+import { faTurnDown } from '@fortawesome/free-solid-svg-icons';
 
 @Component({
   selector: 'app-activities',
@@ -11,6 +11,9 @@ import { MatSnackBar, MatSnackBarHorizontalPosition, MatSnackBarVerticalPosition
 export class ActivitiesComponent implements OnInit {
 
   constructor (private hpservice : ActivityService, private _huomioBar: MatSnackBar) {}
+
+  TurnDown = faTurnDown;
+
 
   activityList : any;
   p: number = 1;
