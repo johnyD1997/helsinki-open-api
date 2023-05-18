@@ -53,7 +53,7 @@ placeholder="kirjoita hakusana.."/>
 <section class="gridcards">
 
   <section class="eventcard" *ngFor="let event of EventList?.data | filter: term | paginate: { itemsPerPage: 12, currentPage: p }">
-    <button class="btn_favourite">Add to favorite
+    <button class="btn_favourite" (click)="addToFavorites(event.name.fi, event.id, event.info_url, (event.location?.address?.street_address + ', ' + event.location?.address?.locality), event.description.images[0]?.url)">Add to favorite
       <fa-icon [icon]="TurnDown"></fa-icon>
           </button>
   

@@ -1,10 +1,10 @@
 <article>
 <a (click)="isVisible = !isVisible">
-<img *ngIf="user.imgUrl" class="avatar" src="{{imgUrl}}" alt="">
+<img class="avatar" src="{{imgUrl}}" alt="">
 </a>
     <ul class="account-list" *ngIf="isVisible" style="list-style-type: none;">
-        <li><a [routerLink]="['/account']">Account</a></li>
-        <li><a [routerLink]="['/favorite']">Favorites</a></li>
+        <li><a [routerLink]="['/account']" (click)="isVisible = !isVisible">Account</a></li>
+        <li><a [routerLink]="['/favorite']" (click)="isVisible = !isVisible">Favorites</a></li>
         <hr/>
         <li (click)="logout()" class="logout">Logout</li>
     </ul>

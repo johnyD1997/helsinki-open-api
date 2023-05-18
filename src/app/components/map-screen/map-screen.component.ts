@@ -83,7 +83,7 @@ export class MapScreenComponent implements OnInit {
           });
 
           let newPlace: Place = {
-            placeId: place.id,
+            id: place.id,
             name: place.name.fi,
             vicinity: `${place.location.address?.street_address}, ${place.location.address?.locality}`,
             photo: place.description.images[0]?.url,
