@@ -112,6 +112,17 @@ margin: 3px;
   color: white;
 }
 
+.btn_favourite {
+  width: 100%;
+  align-self: center;
+  background-color: white;
+  color: #5ebc2a;
+  font-size: 1rem;
+  padding: 0.4rem;
+  border: #5ebc2a solid 1px;
+  border-radius: 10px;
+}
+
 /*BUTTONS END*/
 
 
@@ -120,7 +131,7 @@ margin: 3px;
 /*GRID KORTIT*/
 .gridcards {
     display: grid;
-    grid-template-columns: auto auto auto auto;
+    grid-template-columns: auto auto auto;
     background-color: #f6f6e9;
     padding: 10px;
 }

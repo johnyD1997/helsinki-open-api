@@ -52,6 +52,7 @@
             <ul class="list-group list-group-flush">
                 <li class="list-group-item">{{ place.location.address?.street_address }}</li>
                 <li class="list-group-item"> {{ place.location.address?.postal_code }}, {{ place.location.address?.locality }} </li>
+                <li class="list-group-item"><button class="btn_favourite">Add to favorite</button></li>
             </ul>
             <span *ngIf="place?.info_url?.length!">
               <a href="{{ place?.info_url }}" class="btn btn-outline-primary">Lue lisää</a>
@@ -77,7 +78,9 @@
                   <li class="list-group-item"> {{ event.event_dates?.starting_day | date:'MMMM d, y, H:mm' }}</li>
                     <li class="list-group-item">{{ event.location.address?.street_address }}</li>
                     <li class="list-group-item"> {{ event.location.address?.postal_code }}, {{ event.location.address?.locality }} </li>
-                </ul>
+                    <li class="list-group-item"><button class="btn_favourite">Add to favorite</button></li>
+
+                  </ul>
                 <span *ngIf="event?.info_url?.length!">
                   <a href="{{ event?.info_url }}" class="btn btn-outline-primary">Lue lisää</a>
                 </span>
@@ -98,7 +101,8 @@
                 <ul class="list-group list-group-flush">
                     <li class="list-group-item">{{ activity.location.address?.street_address }}</li>
                     <li class="list-group-item"> {{ activity.location.address?.postal_code }}, {{ activity.location.address?.locality }} </li>
-                </ul>
+                    <li class="list-group-item"><button class="btn_favourite">Add to favorite</button></li>
+                  </ul>
                 <span *ngIf="activity?.info_url?.length!">
                   <a href="{{ activity?.info_url }}" class="btn btn-outline-primary">Lue lisää</a>
                 </span>
