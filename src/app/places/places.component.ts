@@ -4,6 +4,8 @@ import { MatSnackBar, MatSnackBarHorizontalPosition, MatSnackBarVerticalPosition
 import { Observable } from 'rxjs';
 import { DecimalPipe } from '@angular/common';
 import { faTurnDown } from '@fortawesome/free-solid-svg-icons';
+import { FavoritesService } from '../services/favorites.service';
+import { Place } from 'src/models/place';
 
 @Component({
   selector: 'app-places',
@@ -23,7 +25,7 @@ content: string = "long form of text display"
 horizontalPosition: MatSnackBarHorizontalPosition = 'center';
 verticalPosition: MatSnackBarVerticalPosition = 'top';
 
-constructor(private hpservice : PlaceService, private _huomioBar: MatSnackBar){}
+constructor(private hpservice : PlaceService, private _huomioBar: MatSnackBar, public favoritesService: FavoritesService){}
 
 ngOnInit(): void {
   this.getPlaces();
@@ -54,5 +56,20 @@ getPlaces() : void {
   }
   changeReset() {
     this.term = '';
+  }
+
+
+  
+  addToFavorites(_name: string, _id: string, _url: string, _vicinity: string, _photo: string){
+    let place: Place = {
+      photo: _photo,
+      name: _name,
+      id: _id,
+      url: _url,
+      vicinity: _vicinity,
+    }
+
+    this.favoritesService.addToFavorites(place)
+    console.log('Adding to favorite')
   }
 }

@@ -20,7 +20,6 @@ export class FavoritesComponent implements OnInit{
   getAllFavorites(){
     this.favoriteService.getAllFavorites().subscribe(fav => {
       this.favoritePlaces = fav;
-      console.log(fav)
     })
   }
 

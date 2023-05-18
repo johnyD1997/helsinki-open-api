@@ -45,14 +45,20 @@
     <h2>Places</h2>
     <button (click)="moreplaces = !moreplaces" class="btn btn-primary">{{ moreplaces ? 'Vähemmän':'Lataa lisää' }}</button> 
     <div>
-        <ng-container *ngFor="let place of placeList.data | filter: term; index as i">
+        <ng-container *ngFor="let place of placeList?.data | filter: term; index as i">
           <div *ngIf="i<7 || moreplaces" class="card border-primary">
 
             <div class="card-header">{{place.name?.fi}}</div>
             <ul class="list-group list-group-flush">
                 <li class="list-group-item">{{ place.location.address?.street_address }}</li>
                 <li class="list-group-item"> {{ place.location.address?.postal_code }}, {{ place.location.address?.locality }} </li>
-                <li class="list-group-item"><button class="btn_favourite">Add to favorite</button></li>
+                <li class="list-group-item"><button class="btn_favourite" 
+                  (click)="addToFavorites(place.name.fi,
+                            place.id, 
+                            place.info_url, 
+                            (place.location?.address?.street_address + ', ' + place.location?.address?.locality), 
+                            place.description.images[0]?.url)">
+                            Add to favorite</button></li>
             </ul>
             <span *ngIf="place?.info_url?.length!">
               <a href="{{ place?.info_url }}" class="btn btn-outline-primary">Lue lisää</a>
@@ -70,7 +76,7 @@
         <h2>Events</h2>
         <button (click)="moreevents = !moreevents" class="btn btn-primary">{{ moreevents ? 'Vähemmän':'Lataa lisää' }}</button> 
         <div>
-            <ng-container *ngFor="let event of eventList.data | filter: term; index as i">
+            <ng-container *ngFor="let event of eventList?.data | filter: term; index as i">
               <div *ngIf="i<7 || moreevents" class="card border-success">
 
                 <div class="card-header">{{event.name?.fi}}</div>
@@ -78,7 +84,13 @@
                   <li class="list-group-item"> {{ event.event_dates?.starting_day | date:'MMMM d, y, H:mm' }}</li>
                     <li class="list-group-item">{{ event.location.address?.street_address }}</li>
                     <li class="list-group-item"> {{ event.location.address?.postal_code }}, {{ event.location.address?.locality }} </li>
-                    <li class="list-group-item"><button class="btn_favourite">Add to favorite</button></li>
+                    <li class="list-group-item"><button class="btn_favourite" 
+                      (click)="addToFavorites(event.name.fi,
+                                              event.id, 
+                                              event.info_url, 
+                                              (event.location?.address?.street_address + ', ' + event.location?.address?.locality), 
+                                              event.description.images[0]?.url)">
+                                              Add to favorite</button></li>
 
                   </ul>
                 <span *ngIf="event?.info_url?.length!">
@@ -94,14 +106,19 @@
         <h2>Activities</h2>
         <button (click)="moreactivity = !moreactivity" class="btn btn-primary">{{ moreactivity ? 'Vähemmän':'Lataa lisää' }}</button> 
         <div>
-            <ng-container *ngFor="let activity of activityList.data | filter: term; index as i">
+            <ng-container *ngFor="let activity of activityList?.data | filter: term; index as i">
               <div *ngIf="i<7 || moreactivity" class="card border-dark">
 
                 <div class="card-header">{{activity.name?.fi}}</div>
                 <ul class="list-group list-group-flush">
                     <li class="list-group-item">{{ activity.location.address?.street_address }}</li>
                     <li class="list-group-item"> {{ activity.location.address?.postal_code }}, {{ activity.location.address?.locality }} </li>
-                    <li class="list-group-item"><button class="btn_favourite">Add to favorite</button></li>
+                    <li class="list-group-item"><button class="btn_favourite"
+                      (click)="addToFavorites(activity.name.fi,
+                                              activity.id, 
+                                              activity.info_url, 
+                                              (activity.location?.address?.street_address + ', ' + activity.location?.address?.locality), 
+                                              activity.description.images[0]?.url)">>Add to favorite</button></li>
                   </ul>
                 <span *ngIf="activity?.info_url?.length!">
                   <a href="{{ activity?.info_url }}" class="btn btn-outline-primary">Lue lisää</a>

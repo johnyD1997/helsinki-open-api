@@ -22,7 +22,7 @@
 <section class="gridcards">
 
   <aside  class="eventcard" *ngFor="let activity of activityList?.data | filter: term | paginate: { itemsPerPage: 12, currentPage: p }">
-    <button class="btn_favourite">Add to favorite
+    <button class="btn_favourite"(click)="addToFavorites(activity.name.fi, activity.id, activity.info_url, (activity.location?.address?.street_address + ', ' + activity.location?.address?.locality), activity.description.images[0]?.url)">Add to favorite
       <fa-icon [icon]="TurnDown"></fa-icon>
           </button>
     <article>

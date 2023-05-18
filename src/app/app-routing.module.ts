@@ -8,6 +8,7 @@ import { PlacesComponent } from './places/places.component';
 import { SignUpComponent } from './sign-up/sign-up.component';
 import { MapScreenComponent } from './components/map-screen/map-screen.component';
 import { FavoritesComponent } from './favorites/favorites.component';
+import { AccountComponent } from './account/account.component';
 
 const routes: Routes = [
 {path: '', component : MapScreenComponent},
@@ -17,7 +18,8 @@ const routes: Routes = [
 {path: 'alldata', component : AlldataComponent},
 {path: 'login', component: LoginComponent},
 {path: 'sign-up', component: SignUpComponent},
-{path: 'favorite', component: FavoritesComponent}
+{path: 'favorite', component: FavoritesComponent},
+{path: 'account', component: AccountComponent}
 ];
 
 @NgModule({

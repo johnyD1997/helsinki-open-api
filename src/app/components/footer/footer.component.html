@@ -1,56 +1,10 @@
-<section>
-  <article class="d-flex justify-content-around mt-3">
-    <a
-      class="footerlink link-event"
-      routerLink="/events"
-      routerLinkActive="active"
-      >All events</a
-    ><br />
-    <a
-      class="footerlink link-places"
-      routerLink="/places"
-      routerLinkActive="active"
-    >
-      All places</a
-    ><br />
-    <a
-      class="footerlink link-active"
-      routerLink="/activities"
-      routerLinkActive="active"
-    >
-      All activities</a
-    ><br />
-    <a class="footerlink" routerLink="/alldata" routerLinkActive="active"
-      >Everything at once</a
-    >
-  </article>
-  <!--   <button
-    class="btn btn-primary"
-    type="button"
-    data-bs-toggle="offcanvas"
-    data-bs-target="#staticBackdrop"
-    aria-controls="staticBackdrop"
-  >
-    Toggle static offcanvas
-  </button>
-  <div
-    class="offcanvas offcanvas-start"
-    data-bs-backdrop="static"
-    tabindex="-1"
-    id="staticBackdrop"
-    aria-labelledby="staticBackdropLabel"
-  >
-    <div class="offcanvas-header">
-      <h5 class="offcanvas-title" id="staticBackdropLabel">Offcanvas</h5>
-      <button
-        type="button"
-        class="btn-close"
-        data-bs-dismiss="offcanvas"
-        aria-label="Close"
-      ></button>
-    </div>
-    <div class="offcanvas-body">
-      <div>I will not close if you click outside of me.</div>
-    </div>
-  </div> -->
+<section class="container">
+  <hr>
+    <article class="d-flex justify-content-around mt-3">
+        <a class="footerlink d-flex flex-column " routerLink="/events" routerLinkActive="active"> <i class="bi-ticket-perforated align-self-center fa-lg"></i> Events</a><br />
+        <a class="footerlink d-flex flex-column " routerLink="/places" routerLinkActive="active"> <i class="bi-pin-map align-self-center fa-lg"></i> Places</a><br />
+        <a class="footerlink d-flex flex-column " routerLink="/activities" routerLinkActive="active"> <i class="bi bi-bicycle align-self-center fa-lg"></i> Activities</a
+        ><br />
+        <a class="footerlink d-flex flex-column " routerLink="/alldata" routerLinkActive="active"> <i class=" bi bi-signpost-split align-self-center fa-lg"></i>All</a>
+      </article>
 </section>

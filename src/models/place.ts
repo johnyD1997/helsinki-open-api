@@ -1,7 +1,7 @@
 export interface Place{
-    placeId: string,
+    id: string,
     name: string,
     vicinity: string,
-    photo?: string,
+    photo?: string ,
     url: string,
 }

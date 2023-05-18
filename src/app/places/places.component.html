@@ -19,7 +19,7 @@
 
 
   <section class="eventcard" *ngFor="let place of PlaceList?.data | filter: term | paginate: { itemsPerPage: 12, currentPage: p }">
-    <button class="btn_favourite">Add to favorite
+    <button class="btn_favourite" (click)="addToFavorites(place.name.fi, place.id, place.info_url, (place.location?.address?.street_address + ', ' + place.location?.address?.locality), place.description.images[0]?.url)">Add to favorite
 <fa-icon [icon]="TurnDown"></fa-icon>
     </button>
    

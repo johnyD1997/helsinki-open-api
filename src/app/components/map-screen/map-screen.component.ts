@@ -84,17 +84,17 @@ export class MapScreenComponent implements OnInit {
           title: place.name.fi,
         });
 
-        let newPlace: Place = {
-          placeId: place.id,
-          name: place.name.fi,
-          vicinity: `${place.location.address?.street_address}, ${place.location.address?.locality}`,
-          photo: place.description.images[0]?.url,
-          url: place.info_url,
-        };
-
-        let markerContent = document.createElement('div');
-        markerContent.className = 'infoPlace';
-        markerContent.innerHTML += `
+          let newPlace: Place = {
+            id: place.id,
+            name: place.name.fi,
+            vicinity: `${place.location.address?.street_address}, ${place.location.address?.locality}`,
+            photo: place.description.images[0]?.url,
+            url: place.info_url,
+          };
+          
+          let markerContent = document.createElement("div");
+          markerContent.className = "infoPlace";
+          markerContent.innerHTML += `
                               <h4 class="place_name">${place.name.fi}</h4> 
                               <p class="place_text">${place.location.address.street_address}</p>
                               <p class="place_text">${place.location.address.postal_code}, ${place.location.address.locality}</p>

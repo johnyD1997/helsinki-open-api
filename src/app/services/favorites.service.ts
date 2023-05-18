@@ -23,14 +23,8 @@ export class FavoritesService {
   }
 
   addToFavorites(place: any) {
-    const collectionRef = doc(
-      this.db,
-      'users',
-      this.userUid,
-      'favorites',
-      place.placeId
-    );
-    setDoc(collectionRef, place);
+    const collectionRef = doc(this.db, 'users', this.userUid, 'favorites', place.id)
+    setDoc(collectionRef, place)
   }
 
   getAllFavorites(): Observable<Place[]> {

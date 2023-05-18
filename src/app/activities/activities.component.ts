@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { ActivityService } from '../activity.service';
 import { MatSnackBar, MatSnackBarHorizontalPosition, MatSnackBarVerticalPosition } from '@angular/material/snack-bar';
 import { faTurnDown } from '@fortawesome/free-solid-svg-icons';
+import { Place } from 'src/models/place';
+import { FavoritesService } from '../services/favorites.service';
 
 @Component({
   selector: 'app-activities',
@@ -10,7 +12,7 @@ import { faTurnDown } from '@fortawesome/free-solid-svg-icons';
 })
 export class ActivitiesComponent implements OnInit {
 
-  constructor (private hpservice : ActivityService, private _huomioBar: MatSnackBar) {}
+  constructor (private hpservice : ActivityService, private _huomioBar: MatSnackBar, private favoritesService: FavoritesService) {}
 
   TurnDown = faTurnDown;
 
@@ -51,6 +53,19 @@ export class ActivitiesComponent implements OnInit {
   }
   changeReset() {
     this.term = '';
+  }
+
+  addToFavorites(_name: string, _id: string, _url: string, _vicinity: string, _photo: string){
+    let place: Place = {
+      photo: _photo,
+      name: _name,
+      id: _id,
+      url: _url,
+      vicinity: _vicinity,
+    }
+
+    this.favoritesService.addToFavorites(place)
+    console.log('Adding to favorite')
   }
 
 }
