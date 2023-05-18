@@ -52,7 +52,16 @@
   background-color: #f6aaa3;
   color: beige;
 }
+.event {
+  background-color: #f6aaa3;
+  color: beige;
+}
 
+.list {
+  width: auto;
+  background-color: rgb(246, 246, 246);
+  color: grey;
+}
 .list {
   width: auto;
   background-color: rgb(246, 246, 246);

@@ -1,5 +1,7 @@
-<section>
+<section class="container">
+    <app-carousel></app-carousel>
     <app-header-bar></app-header-bar>
+
     <router-outlet></router-outlet>
     <app-footer *ngIf="!(hasRoute('login') || hasRoute('sign-up'))"></app-footer>
 </section>
