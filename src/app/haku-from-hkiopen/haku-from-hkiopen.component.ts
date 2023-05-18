@@ -44,6 +44,10 @@ getEvents() : void {
     })
 }
 
+// ADD TO FAVORITES FUNCTIONS
+ 
+
+
 
 // Button functions
 
