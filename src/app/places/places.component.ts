@@ -3,6 +3,7 @@ import { PlaceService } from '../place.service';
 import { MatSnackBar, MatSnackBarHorizontalPosition, MatSnackBarVerticalPosition } from '@angular/material/snack-bar';
 import { Observable } from 'rxjs';
 import { DecimalPipe } from '@angular/common';
+import { faTurnDown } from '@fortawesome/free-solid-svg-icons';
 
 @Component({
   selector: 'app-places',
@@ -11,6 +12,8 @@ import { DecimalPipe } from '@angular/common';
 
 })
 export class PlacesComponent implements OnInit {
+
+  TurnDown = faTurnDown;
 
 PlaceList : any;
 p: number = 1;
