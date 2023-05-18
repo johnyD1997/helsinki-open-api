@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { Component, OnInit, Input, ViewChild } from '@angular/core';
 import { ActivityService } from 'src/app/activity.service';
 import { EventService } from 'src/app/event.service';
 import { PlaceService } from 'src/app/place.service';
@@ -11,6 +11,7 @@ import { Place } from 'src/models/place';
   styleUrls: ['./map-screen.component.css'],
 })
 export class MapScreenComponent implements OnInit {
+  isVisible = false;
   mapLoaded!: boolean;
   map!: google.maps.Map;
   geocoder = new google.maps.Geocoder();
@@ -28,6 +29,7 @@ export class MapScreenComponent implements OnInit {
   };
 
   markers = [] as any;
+  placesContent: any = [];
 
   constructor(
     private eventService: EventService,
@@ -70,6 +72,8 @@ export class MapScreenComponent implements OnInit {
 
     content.subscribe((response: any) => {
       let arr = response.data as Array<any>;
+      
+      this.placesContent = arr.slice(0, 8)
 
       arr.forEach((place: any) => {
         let marker = new google.maps.Marker({
@@ -107,9 +111,9 @@ export class MapScreenComponent implements OnInit {
         // To add the marker to the map, call setMap();
         marker.setMap(this.map);
         google.maps.event.addListener(marker, 'click', () => {
-          let infowindow = new google.maps.InfoWindow();
-          infowindow.setContent(markerContent);
-          infowindow.open(this.map, marker);
+          // let infowindow = new google.maps.InfoWindow();
+          this.infoWindow.setContent(markerContent);
+          this.infoWindow.open(this.map, marker);
         });
       });
     });

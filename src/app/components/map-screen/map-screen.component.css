@@ -1,13 +1,16 @@
+.screen {
+  position: relative;
+}
+
 #map {
   position: relative;
-  height: 600px; /* The height is 600 pixels */
+  height: 650px; /* The height is 600 pixels */
   width: 100%; /* The width is the width of the web page */
   border: none;
 }
 .places {
   position: absolute;
   top: 14%;
-  left: 2%;
   gap: 0.5rem;
 }
 .btn {
@@ -23,54 +26,28 @@
 }
 
 .activity {
-  /* background-color: var(--button-park); */
-  background-color: #5ebc2a;
-  color: beige;
-}
-
-.stadium {
-  background-color: #fecf02;
+  background-color: var(--button-activity);
   color: beige;
 }
 
 .place {
-  background-color: #8143c2;
-  color: beige;
-}
-
-.sight {
-  background-color: #ff9902;
-  color: beige;
-}
-
-.concert {
-  background-color: #fecf02;
+  background-color: var(--button-place);
   color: beige;
 }
 
 .event {
-  background-color: #f6aaa3;
-  color: beige;
-}
-.event {
-  background-color: #f6aaa3;
+  background-color: var(--button-event);
   color: beige;
 }
 
 .list {
   width: auto;
-  background-color: rgb(246, 246, 246);
-  color: grey;
-}
-.list {
-  width: auto;
-  background-color: rgb(246, 246, 246);
-  color: grey;
+  background-color: white;
+  color: gray;
 }
 
 .side-bar {
   height: auto;
-  width: 30%;
   position: absolute;
   background-color: azure;
 }

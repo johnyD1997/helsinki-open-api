@@ -2,5 +2,6 @@ gallery {
   margin-top: 1.5rem;
   margin-left: 0.7rem;
   margin-bottom: 1.5rem;
-  border: solid 1px;
+  height: 200px;
+  width: 250px;
 }

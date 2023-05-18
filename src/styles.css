@@ -3,11 +3,10 @@
 /*BUTTONIEN VÄRIT*/
 :root {
   --main-color: #5ebc5e;
-  --button-park: #5ebc2a;
-  --button-stadium: #fecf02;
+  --button-activity: #5ebc2a;
   --button-restaurant: #ff9902;
-  --button-sight: #8143c2;
-  --button-concert: #f6aaa3;
+  --button-place: #8143c2;
+  --button-event: #f6aaa3;
 }
 
 /* USE .BTN class and these colors*/

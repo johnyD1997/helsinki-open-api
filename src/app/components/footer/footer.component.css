@@ -6,10 +6,10 @@
     margin-bottom: 3vh;
 }
 .link-event{
-    color: var(--button-concert);
+    color: var(--button-event);
 }
 .link-places{
-    color: var(--button-sight);
+    color: var(--button-place);
 }
 .link-active{
     color: var(--main-color);

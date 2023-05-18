@@ -19,7 +19,9 @@ header {
   width: 20%;
 }
 .login {
-  width: 70%;
+  background-color: var(--main-color);
+  color: beige;
+  width: 50%;
   padding: 0.5rem;
   font-size: 1.2rem;
   border: none;

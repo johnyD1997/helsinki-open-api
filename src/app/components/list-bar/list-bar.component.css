@@ -1,10 +1,22 @@
-.show-list {
-    position: absolute;
-    top: 10%;
-    z-index: 20;
-  }
+.list-bar {
+  background-color: white;
+  color: black;
+  width: 98%;
+  height: 90vh;
+  overflow: auto;
+}
 
-.off-canvas {
-    background-color: aliceblue;
-    width: 30%;
+.card {
+text-align: center;
+}
+
+.card-img-top {
+  height: 120px;
+  width: 90%;
+  object-fit: cover;
+}
+
+.bi-heart-fill {
+  color: var(--button-event);
+  font-size: 1.2rem;
 }
