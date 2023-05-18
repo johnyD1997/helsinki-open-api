@@ -1,42 +1,38 @@
 <section class="display">
 <section class="weather" *ngIf="helsinkiforecastweather?.location.localtime < helsinkiforecastweather?.forecast.forecastday[0].hour[8].time" >
   <p>Clock: 8.00</p>
-  <div class="temp">Temperature: {{Math.floor (helsinkiforecastweather?.forecast.forecastday[0].hour[8].temp_c)}} °C</div>
-  <div class="temp">Feels like: {{Math.floor (helsinkiforecastweather?.forecast.forecastday[0].hour[8].feelslike_c)}} °C</div>
   <img src="{{helsinkiforecastweather?.forecast.forecastday[0].hour[8].condition.icon}}
   ">
+  <div class="temp">{{Math.floor (helsinkiforecastweather?.forecast.forecastday[0].hour[8].temp_c)}} °C</div>
   </section>
 
 <section class="weather" *ngIf="helsinkiforecastweather?.location.localtime < helsinkiforecastweather?.forecast.forecastday[0].hour[11].time" >
-  <p>Clock: 11.00</p>
-  <div class="temp">Temperature: {{Math.floor (helsinkiforecastweather?.forecast.forecastday[0].hour[11].temp_c)}} °C</div>
-  <div class="temp">Feels like: {{Math.floor (helsinkiforecastweather?.forecast.forecastday[0].hour[11].feelslike_c)}} °C</div>
+  <p>11.00</p>
   <img src="{{helsinkiforecastweather?.forecast.forecastday[0].hour[11].condition.icon}}
   ">
+  <div class="temp">{{Math.floor (helsinkiforecastweather?.forecast.forecastday[0].hour[11].temp_c)}} °C</div>
   </section>
 
 <section class="weather" *ngIf="helsinkiforecastweather?.location.localtime < helsinkiforecastweather?.forecast.forecastday[0].hour[15].time" >
-  <p>Clock: 15.00</p>
-  <div class="temp">Temperature: {{Math.floor (helsinkiforecastweather?.forecast.forecastday[0].hour[15].temp_c)}} °C</div>
-  <div class="temp">Feels like: {{Math.floor (helsinkiforecastweather?.forecast.forecastday[0].hour[15].feelslike_c)}} °C</div>
+  <p>15.00</p>
   <img src="{{helsinkiforecastweather?.forecast.forecastday[0].hour[15].condition.icon}}
   ">
+  <div class="temp">{{Math.floor (helsinkiforecastweather?.forecast.forecastday[0].hour[15].temp_c)}} °C</div>
   </section>
 
 <section class="weather" *ngIf="helsinkiforecastweather?.location.localtime < helsinkiforecastweather?.forecast.forecastday[0].hour[20].time" >
-  <p>Clock: 20.00</p>
-  <div class="temp">Temperature: {{Math.floor (helsinkiforecastweather?.forecast.forecastday[0].hour[20].temp_c)}} °C</div>
-  <div class="temp">Feels like: {{Math.floor (helsinkiforecastweather?.forecast.forecastday[0].hour[20].feelslike_c)}} °C</div>
+  <p>20.00</p>
   <img src="{{helsinkiforecastweather?.forecast.forecastday[0].hour[20].condition.icon}}
   ">
+  <div class="temp">{{Math.floor (helsinkiforecastweather?.forecast.forecastday[0].hour[20].temp_c)}} °C</div>
   </section>
   
 <section class="weather" *ngIf="helsinkiforecastweather?.location.localtime < helsinkiforecastweather?.forecast.forecastday[0].hour[23].time" >
-  <p>Clock: 23.00</p>
-  <div class="temp">Temperature: {{Math.floor (helsinkiforecastweather?.forecast.forecastday[0].hour[23].temp_c)}} °C</div>
-  <div class="temp">Feels like: {{Math.floor (helsinkiforecastweather?.forecast.forecastday[0].hour[23].feelslike_c)}} °C</div>
+  <p>23.00</p>
   <img src="{{helsinkiforecastweather?.forecast.forecastday[0].hour[23].condition.icon}}
   ">
+  <div class="temp">{{Math.floor (helsinkiforecastweather?.forecast.forecastday[0].hour[23].temp_c)}} °C</div>
+
   </section>
 
 
@@ -47,37 +43,39 @@
   <section class="displayshow">
 <section class="weather" *ngIf="helsinkiforecastweather?.location.localtime < helsinkiforecastweather?.forecast.forecastday[0].hour[8].time" >
   <p>8.00</p>
-  <div class="temp">Temperature: {{Math.floor (helsinkiforecastweather?.forecast.forecastday[0].hour[8].temp_c)}} °C</div>
-  <div class="temp">Feels like: {{Math.floor (helsinkiforecastweather?.forecast.forecastday[0].hour[8].feelslike_c)}} °C</div>
   <img src="{{helsinkiforecastweather?.forecast.forecastday[0].hour[8].condition.icon}}
   ">
+  <div class="temp">{{Math.floor (helsinkiforecastweather?.forecast.forecastday[0].hour[8].temp_c)}} °C</div>
   </section>
 
 <section class="weather" *ngIf="helsinkiforecastweather?.location.localtime < helsinkiforecastweather?.forecast.forecastday[0].hour[11].time" >
   <p>11.00</p>
-  <div class="temp">{{Math.floor (helsinkiforecastweather?.forecast.forecastday[0].hour[11].temp_c)}} °C</div>  <img src="{{helsinkiforecastweather?.forecast.forecastday[0].hour[11].condition.icon}}
+  <img src="{{helsinkiforecastweather?.forecast.forecastday[0].hour[11].condition.icon}}
   ">
+  <div class="temp">{{Math.floor (helsinkiforecastweather?.forecast.forecastday[0].hour[11].temp_c)}} °C</div>  
+ 
   </section>
 
 <section class="weather" *ngIf="helsinkiforecastweather?.location.localtime < helsinkiforecastweather?.forecast.forecastday[0].hour[15].time" >
   <p>15.00</p>
-  <div class="temp">{{Math.floor (helsinkiforecastweather?.forecast.forecastday[0].hour[15].temp_c)}} °C</div>
   <img src="{{helsinkiforecastweather?.forecast.forecastday[0].hour[15].condition.icon}}
   ">
+  <div class="temp">{{Math.floor (helsinkiforecastweather?.forecast.forecastday[0].hour[15].temp_c)}} °C</div>
   </section>
 
 <section class="weather" *ngIf="helsinkiforecastweather?.location.localtime < helsinkiforecastweather?.forecast.forecastday[0].hour[20].time" >
   <p>20.00</p>
-  <div class="temp">{{Math.floor (helsinkiforecastweather?.forecast.forecastday[0].hour[20].temp_c)}} °C</div>
   <img src="{{helsinkiforecastweather?.forecast.forecastday[0].hour[20].condition.icon}}
   ">
+  <div class="temp">{{Math.floor (helsinkiforecastweather?.forecast.forecastday[0].hour[20].temp_c)}} °C</div>
   </section>
   
 <section class="weather" *ngIf="helsinkiforecastweather?.location.localtime < helsinkiforecastweather?.forecast.forecastday[0].hour[23].time" >
   <p>23.00</p>
-  <div class="temp">{{Math.floor (helsinkiforecastweather?.forecast.forecastday[0].hour[23].temp_c)}} °C</div>
   <img src="{{helsinkiforecastweather?.forecast.forecastday[0].hour[23].condition.icon}}
   ">
+  <div class="temp">{{Math.floor (helsinkiforecastweather?.forecast.forecastday[0].hour[23].temp_c)}} °C</div>
+
   </section>
 
 
