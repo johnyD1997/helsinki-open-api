@@ -1,182 +1,194 @@
-@import "~bootstrap/dist/css/bootstrap.css";
 @import url("https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.4/font/bootstrap-icons.css");
 
 /*BUTTONIEN VÄRIT*/
+:root {
+  --main-color: #5ebc5e;
+  --button-park: #5ebc2a;
+  --button-stadium: #fecf02;
+  --button-restaurant: #ff9902;
+  --button-sight: #8143c2;
+  --button-concert: #f6aaa3;
+}
 
 /* USE .BTN class and these colors*/
 /* BUTTON VIOLET */
 .button-violet {
-    background-color: #8143c2;
-    color: white;
+  background-color: #8143c2;
+  color: white;
 }
 
 .button-violet:hover {
-    opacity: 0.9;
-    color: white;
+  opacity: 0.9;
+  color: white;
 }
 
 .button-outline-violet {
-    border: 1px #8143c2 solid;
-    color: #8143c2;
+  border: 1px #8143c2 solid;
+  color: #8143c2;
 }
 
 .button-outline-violet:hover {
-    background-color: #8143c2;
-    color: white;
+  background-color: #8143c2;
+  color: white;
 }
 /*Button Orange*/
 .button-orange {
-    background-color: #ff9902;
-    color: white;
+  background-color: #ff9902;
+  color: white;
 }
 
 .button-orange:hover {
-    opacity: 0.9;
-    color: white;
+  opacity: 0.9;
+  color: white;
 }
 
 .button-outline-orange {
-    border: 1px #ff9902 solid;
-    color: #ff9902;
+  border: 1px #ff9902 solid;
+  color: #ff9902;
 }
 
 .button-outline-orange:hover {
-    background-color: #ff9902;
-    color: white;
+  background-color: #ff9902;
+  color: white;
 }
 /*Button Pink*/
 .button-pink {
-    background-color: #f6aaa3;
-    color: white;
+  background-color: #f6aaa3;
+  color: white;
 }
 
 .button-pink:hover {
-    opacity: 0.9;
-    color: white;
+  opacity: 0.9;
+  color: white;
 }
 
 .button-outline-pink {
-    border: 1px #f6aaa3 solid;
-    color: #f6aaa3;
+  border: 1px #f6aaa3 solid;
+  color: #f6aaa3;
 }
 
 .button-outline-pink:hover {
-    background-color: #f6aaa3;
-    color: white;
+  background-color: #f6aaa3;
+  color: white;
 }
 /*button green*/
 .button-green {
-    background-color: #5ebc2a;
-    color: white;
+  background-color: #5ebc2a;
+  color: white;
 }
 
 .button-green:hover {
-    opacity: 0.9;
-    color: white;
+  opacity: 0.9;
+  color: white;
 }
 
 .button-outline-green {
-    border: 1px #5ebc2a solid;
-    color: #5ebc2a;
+  border: 1px #5ebc2a solid;
+  color: #5ebc2a;
 }
 
 .button-outline-green:hover {
-    background-color: #5ebc2a;
-    color: white;
+  background-color: #5ebc2a;
+  color: white;
 }
 
 /*BUTTONS END*/
-html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
-
+html,
+body {
+  height: 100%;
+}
+body {
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+}
 
 .success-snackbar {
-    color: white;
-    background-color: #5ebc2a;
-    }
+  color: white;
+  background-color: #5ebc2a;
+}
 
 /*BUTTONIEN VÄRIT*/
 
 /* USE .BTN class and these colors*/
 /* BUTTON VIOLET */
 .button-violet {
-    background-color: #8143c2;
-    color: white;
+  background-color: #8143c2;
+  color: white;
 }
 
 .button-violet:hover {
-    opacity: 0.9;
-    color: white;
+  opacity: 0.9;
+  color: white;
 }
 
 .button-outline-violet {
-    border: 1px #8143c2 solid;
-    color: #8143c2;
+  border: 1px #8143c2 solid;
+  color: #8143c2;
 }
 
 .button-outline-violet:hover {
-    background-color: #8143c2;
-    color: white;
+  background-color: #8143c2;
+  color: white;
 }
 /*Button Orange*/
 .button-orange {
-    background-color: #ff9902;
-    color: white;
+  background-color: #ff9902;
+  color: white;
 }
 
 .button-orange:hover {
-    opacity: 0.9;
-    color: white;
+  opacity: 0.9;
+  color: white;
 }
 
 .button-outline-orange {
-    border: 1px #ff9902 solid;
-    color: #ff9902;
+  border: 1px #ff9902 solid;
+  color: #ff9902;
 }
 
 .button-outline-orange:hover {
-    background-color: #ff9902;
-    color: white;
+  background-color: #ff9902;
+  color: white;
 }
 /*Button Pink*/
 .button-pink {
-    background-color: #f6aaa3;
-    color: white;
+  background-color: #f6aaa3;
+  color: white;
 }
 
 .button-pink:hover {
-    opacity: 0.9;
-    color: white;
+  opacity: 0.9;
+  color: white;
 }
 
 .button-outline-pink {
-    border: 1px #f6aaa3 solid;
-    color: #f6aaa3;
+  border: 1px #f6aaa3 solid;
+  color: #f6aaa3;
 }
 
 .button-outline-pink:hover {
-    background-color: #f6aaa3;
-    color: white;
+  background-color: #f6aaa3;
+  color: white;
 }
 /*button green*/
 .button-green {
-    background-color: #5ebc2a;
-    color: white;
+  background-color: #5ebc2a;
+  color: white;
 }
 
 .button-green:hover {
-    opacity: 0.9;
-    color: white;
+  opacity: 0.9;
+  color: white;
 }
 
 .button-outline-green {
-    border: 1px #5ebc2a solid;
-    color: #5ebc2a;
+  border: 1px #5ebc2a solid;
+  color: #5ebc2a;
 }
 
 .button-outline-green:hover {
-    background-color: #5ebc2a;
-    color: white;
+  background-color: #5ebc2a;
+  color: white;
 }
 
 /*BUTTONS END*/
@@ -184,48 +196,48 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 /*InfoWinow styles*/
 
 .infoPlace {
-    width: 150px;
-    align-items: center;
-    display: flex;
-    flex-direction: column;
+  width: 150px;
+  align-items: center;
+  display: flex;
+  flex-direction: column;
 }
 
 .place_name {
-    text-align: center;
-    font-size: 1rem;
-    font-weight: 600;
+  text-align: center;
+  font-size: 1rem;
+  font-weight: 600;
 }
 
 .place_text {
-    text-align: center;
-    font-size: 0.8rem;
-    margin: 0.1rem 0;
+  text-align: center;
+  font-size: 0.8rem;
+  margin: 0.1rem 0;
 }
 
 .picture {
-    margin-top: 0.5rem;
-    object-fit: contain;
-    text-align: center;
+  margin-top: 0.5rem;
+  object-fit: contain;
+  text-align: center;
 }
 
 .btn_favourite {
-    width: 100%;
-    align-self: center;
-    background-color: white;
-    color: #5ebc2a;
-    font-size: 1rem;
-    padding: 0.4rem;
-    border: #5ebc2a solid 1px;
-    border-radius: 10px;
-    margin: 0.5rem 0;
-  }
-  
+  width: 100%;
+  align-self: center;
+  background-color: white;
+  color: #5ebc2a;
+  font-size: 1rem;
+  padding: 0.4rem;
+  border: #5ebc2a solid 1px;
+  border-radius: 10px;
+  margin: 0.5rem 0;
+}
+
 .bi-heart-fill {
-    margin-right: 0.5rem;
-    font-size: 1rem;
+  margin-right: 0.5rem;
+  font-size: 1rem;
 }
 
 .btn_favourite:hover {
-    background-color: #5ebc2a;
-    color: white;
-  }
+  background-color: #5ebc2a;
+  color: white;
+}

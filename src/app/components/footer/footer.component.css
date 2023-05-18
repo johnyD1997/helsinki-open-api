@@ -1,6 +1,16 @@
+
 .footerlink{
     font-weight: 700;
-    font-size: 1.35rem;
+    font-size: 1.2rem;
     text-decoration: none;
     margin-bottom: 3vh;
+}
+.link-event{
+    color: var(--button-concert);
+}
+.link-places{
+    color: var(--button-sight);
+}
+.link-active{
+    color: var(--main-color);
 }
