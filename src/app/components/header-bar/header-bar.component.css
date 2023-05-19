@@ -15,9 +15,9 @@ header {
 .title {
   width: 50%;
 }
-.login-user {
+/* .login-user {
   width: 20%;
-}
+} */
 .login {
   background-color: var(--main-color);
   color: beige;
