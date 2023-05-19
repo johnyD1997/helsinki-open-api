@@ -14,7 +14,7 @@ import { AvatarsService } from './avatars.service';
 })
 export class AuthService{
   userLoggedIn?: boolean;
-  private loggedIn: Subject<boolean> = new ReplaySubject<boolean>(1);
+  public loggedIn = new Subject()
   userId: any;
   
   constructor(private afAuth: AngularFireAuth, private router: Router, public firestore: AngularFirestore, private cookieServ: CookieService, private avatar: AvatarsService) { 
@@ -58,12 +58,13 @@ export class AuthService{
     return userRef.set(user);
   }
 
-  async getUserData(uid: any){
+  async getUserData(uid: any): Promise<any>{
     const db = getFirestore();
     const docRef = doc(db, 'users', uid);
     const docSnap = await getDoc(docRef);
     localStorage.setItem('user', JSON.stringify(docSnap.data()));
     if(docSnap.exists()){
+      this.loggedIn.next(docSnap.data())
       return docSnap.data();
     }else{
       return console.log('No such document');
@@ -87,7 +88,6 @@ export class AuthService{
       localStorage.setItem('user', JSON.stringify(res.user!));
       this.userId = res.user?.uid!
       this.getUserData(res.user?.uid!)
-      this.loggedIn.next(true)
     })
   }
 
@@ -95,12 +95,10 @@ export class AuthService{
     this.afAuth.signOut().then(()=>{
       this.loggedIn.next(false)
       localStorage.removeItem('user');
+      this.router.navigate(['/'])
     })
   }
 
-  loginStatusChange(): Observable<boolean> {
-    return this.loggedIn.asObservable();
-  }
 
   updateName(userInfo: any) : Promise<any> {
     let user = JSON.parse(localStorage.getItem('user')!)
