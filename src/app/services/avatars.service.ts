@@ -12,6 +12,7 @@ export class AvatarsService {
     this.currentUser = JSON.parse(localStorage.getItem('user')!)
     if(this.currentUser !== null){
       this.userUid = this.currentUser.uid;
+      console.log(this.currentUser.uid)
     }
    }
 
@@ -47,7 +48,7 @@ export class AvatarsService {
     return this.avatars;
   }
 
-  updateAvatar(newAvatar: string): Promise<any>{
-    return this.firestore.collection('users').doc(this.userUid).update({imgUrl: newAvatar})
+  updateAvatar(newAvatar: string, userUid: string): Promise<any>{
+    return this.firestore.collection('users').doc(userUid).update({imgUrl: newAvatar})
   }
 }

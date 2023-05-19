@@ -1,6 +1,6 @@
 <article>
 <a (click)="isVisible = !isVisible">
-<img class="avatar" src="{{imgUrl}}" alt="">
+<img class="avatar" [src]="user?.imgUrl" alt="">
 </a>
     <ul class="account-list" *ngIf="isVisible" style="list-style-type: none;">
         <li><a [routerLink]="['/account']" (click)="isVisible = !isVisible">Account</a></li>
