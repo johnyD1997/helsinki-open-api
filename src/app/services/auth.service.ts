@@ -3,11 +3,14 @@ import { AngularFireAuth } from '@angular/fire/compat/auth';
 import { AngularFirestore, AngularFirestoreDocument } from '@angular/fire/compat/firestore';
 import { Router } from '@angular/router'
 import { User } from 'src/models/user';
-import { GoogleAuthProvider, FacebookAuthProvider } from "@angular/fire/auth";
+import { GoogleAuthProvider, FacebookAuthProvider, user } from "@angular/fire/auth";
 import { CookieService } from 'ngx-cookie-service';
-import {doc, getDoc, getFirestore } from 'firebase/firestore';
-import { Observable, ReplaySubject, Subject } from 'rxjs';
+import {deleteDoc, doc, getDoc, getFirestore } from 'firebase/firestore';
+import { Subject } from 'rxjs';
 import { AvatarsService } from './avatars.service';
+import firebase from 'firebase/compat/app'
+import admin from 'firebase/compat/app';
+import { CurrencyPipe } from '@angular/common';
 
 @Injectable({
   providedIn: 'root'
@@ -88,7 +91,14 @@ export class AuthService{
       localStorage.setItem('user', JSON.stringify(res.user!));
       this.userId = res.user?.uid!
       this.getUserData(res.user?.uid!)
-    })
+    }) 
+    .catch((error) => {
+      console.log('Auth service: login error...');
+      console.log('error code', error.code);
+      console.log('error', error);
+      if (error.code) return { isValid: false, message: error.message };
+      return error.message;
+    });
   }
 
   signOut(){
@@ -104,4 +114,14 @@ export class AuthService{
     let user = JSON.parse(localStorage.getItem('user')!)
     return this.firestore.collection('users').doc(user.uid).update({name: userInfo.name, surname: userInfo.surname});
   }
+
+  async deleteUser(userUid: string) {
+    const db = getFirestore();
+    const docRef = doc(db, 'users', userUid);
+    await deleteDoc(docRef).then(_ => {
+      this.afAuth.currentUser.then(user => user?.delete())
+    });
+    this.signOut();
+  }
+
 }

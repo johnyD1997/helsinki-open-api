@@ -9,14 +9,17 @@ import { AuthService } from '../services/auth.service';
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent {
-
+  firebaseError: boolean; 
   loginForm!: FormGroup;
-  constructor(private router: Router, public authService: AuthService){}
-  ngOnInit(): void{
+  constructor(private router: Router, public authService: AuthService){
+    this.firebaseError = false;
     this.loginForm = new FormGroup({
       'email': new FormControl ('',Validators.required),
       'password': new FormControl ('', Validators.required)
     })
+  }
+  ngOnInit(): void{
+    
   }
 
   loginUser(){
@@ -25,6 +28,7 @@ export class LoginComponent {
         console.log('Login into...')
       } else if(result.isValid == false){
         console.log('page reloaded')
+        this.firebaseError = true
       }
     })
   }

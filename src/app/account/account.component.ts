@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { AvatarsService } from '../services/avatars.service';
 import { AuthService } from '../services/auth.service';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-account',
@@ -26,10 +27,11 @@ changeName!: FormGroup;
       });
     };
 
-    constructor(public avatarService: AvatarsService, private auth: AuthService){ }
+    constructor(public avatarService: AvatarsService, private auth: AuthService, private router: Router){ }
 
     updateAvatar(src: string){
-      this.avatarService.updateAvatar(src).then(()=>{
+      let userId = this.currentUser.uid
+      this.avatarService.updateAvatar(src, userId).then(()=>{
         this.ngOnInit();
       });
     }
@@ -38,6 +40,11 @@ changeName!: FormGroup;
       this.auth.updateName(this.changeName.value).then(()=>{
         this.ngOnInit();
       })
+    }
+
+    deleteUser(){
+      this.auth.deleteUser(this.currentUser.uid);
+      this.router.navigate(['/']);
     }
 
 }
