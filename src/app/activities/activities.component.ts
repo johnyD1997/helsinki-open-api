@@ -1,9 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivityService } from '../activity.service';
 import { MatSnackBar, MatSnackBarHorizontalPosition, MatSnackBarVerticalPosition } from '@angular/material/snack-bar';
-import { faTurnDown } from '@fortawesome/free-solid-svg-icons';
+import { faStar, faHashtag, faGlobe } from '@fortawesome/free-solid-svg-icons';
 import { Place } from 'src/models/place';
 import { FavoritesService } from '../services/favorites.service';
+
 
 @Component({
   selector: 'app-activities',
@@ -14,7 +15,9 @@ export class ActivitiesComponent implements OnInit {
 
   constructor (private hpservice : ActivityService, private _huomioBar: MatSnackBar, private favoritesService: FavoritesService) {}
 
-  TurnDown = faTurnDown;
+  Star = faStar;
+  Hashtag = faHashtag;
+  Globe = faGlobe;
 
 
   activityList : any;

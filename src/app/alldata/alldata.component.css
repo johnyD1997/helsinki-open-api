@@ -123,6 +123,11 @@ button, .btn {
     border-radius: 10px;
   }
 
+  .btn_favourite:hover {
+    background-color: #5ebc2a;
+    color: white;
+  }
+
 /*BUTTONS END*/
 
 

@@ -3,7 +3,7 @@ import { PlaceService } from '../place.service';
 import { MatSnackBar, MatSnackBarHorizontalPosition, MatSnackBarVerticalPosition } from '@angular/material/snack-bar';
 import { Observable } from 'rxjs';
 import { DecimalPipe } from '@angular/common';
-import { faTurnDown } from '@fortawesome/free-solid-svg-icons';
+import { faStar, faHashtag, faArrowUpRightFromSquare, faGlobe } from '@fortawesome/free-solid-svg-icons';
 import { FavoritesService } from '../services/favorites.service';
 import { Place } from 'src/models/place';
 
@@ -15,7 +15,10 @@ import { Place } from 'src/models/place';
 })
 export class PlacesComponent implements OnInit {
 
-  TurnDown = faTurnDown;
+  Star = faStar;
+  Hashtag = faHashtag;
+  ArrowUpRight = faArrowUpRightFromSquare;
+  Globe = faGlobe;
 
 PlaceList : any;
 p: number = 1;
