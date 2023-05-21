@@ -118,7 +118,7 @@
                                               activity.id, 
                                               activity.info_url, 
                                               (activity.location?.address?.street_address + ', ' + activity.location?.address?.locality), 
-                                              activity.description.images[0]?.url)">>Add to favorite</button></li>
+                                              activity.description.images[0]?.url)">Add to favorite</button></li>
                   </ul>
                 <span *ngIf="activity?.info_url?.length!">
                   <a href="{{ activity?.info_url }}" class="btn btn-outline-primary">Lue lisää</a>

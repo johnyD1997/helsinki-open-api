@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { EventService } from '../event.service';
 import { MatSnackBar, MatSnackBarHorizontalPosition, MatSnackBarVerticalPosition } from '@angular/material/snack-bar';
-import { faTurnDown } from '@fortawesome/free-solid-svg-icons';
+import { faStar, faHashtag, faGlobe } from '@fortawesome/free-solid-svg-icons';
 import { FavoritesService } from '../services/favorites.service';
 import { Place } from 'src/models/place';
 
@@ -13,7 +13,9 @@ import { Place } from 'src/models/place';
 })
 export class HakuFromHkiopenComponent implements OnInit {
 
-TurnDown = faTurnDown;
+Star = faStar;
+Hashtag = faHashtag;
+Globe = faGlobe;
 
 EventList : any;
 p: number = 1;
@@ -59,6 +61,7 @@ addToFavorites(_name: string, _id: string, _url: string, _vicinity: string, _pho
 
   this.favoritesService.addToFavorites(place)
   console.log('Adding to favorite')
+
 }
 
 
