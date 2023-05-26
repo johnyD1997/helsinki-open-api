@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { AngularFireAuth } from '@angular/fire/compat/auth';
 import { faCircleUser } from '@fortawesome/free-solid-svg-icons' 
 import { AuthService } from '../services/auth.service';
+import { Subject } from 'rxjs';
 
 @Component({
   selector: 'app-account-icon',
@@ -10,25 +11,20 @@ import { AuthService } from '../services/auth.service';
 })
 export class AccountIconComponent implements OnInit{
   isVisible = false;
-  imgUrl: any;
-  facircleuser = faCircleUser;
   user: any;
-  constructor(private afAuth: AngularFireAuth, private auth: AuthService){}
-  
-  ngOnInit(){
-    this.auth.loginStatusChange().subscribe(loggedIn => {
-      if(loggedIn){
-        this.fetchUserData()
-      }
-    })
-    this.fetchUserData();
+  constructor(private afAuth: AngularFireAuth, private auth: AuthService, private authService: AuthService){
+    this.authService.loggedIn.subscribe(user => this.user = user)
+    this.ngOnInit()
   }
+
+  ngOnInit(){
+      this.fetchUserData()
+  }
+  
 
   fetchUserData(){
     let currentUser = JSON.parse(localStorage.getItem('user')!)
     this.user = currentUser
-    console.log(this.user.name)
-    this.imgUrl = this.user?.imgUrl;
   }
 
   logout(){

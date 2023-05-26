@@ -38,6 +38,12 @@ import { CommonModule } from '@angular/common';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ListBarComponent } from './components/list-bar/list-bar.component';
+import { CarouselComponent } from './carousel/carousel.component';
+import { GalleryModule } from  'ng-gallery';
+
+
+
+
 
 
 
@@ -59,6 +65,7 @@ import { ListBarComponent } from './components/list-bar/list-bar.component';
     FooterComponent,
     WeatherComponent,
     ListBarComponent,
+    CarouselComponent,
   ],
   imports: [
     BrowserModule,
@@ -78,6 +85,8 @@ import { ListBarComponent } from './components/list-bar/list-bar.component';
     MatSnackBarModule,
     BrowserAnimationsModule,
     GoogleMapsModule,
+    GalleryModule
+
   ],
   providers: [AuthService, CookieService],
   bootstrap: [AppComponent]

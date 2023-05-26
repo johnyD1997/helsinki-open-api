@@ -1,42 +1,62 @@
 .logo {
   width: 8%;
   height: auto;
+  color: var(--button-concert);
 }
-
+header {
+  height: 100px;
+}
 .main-title {
   color: #5ebc5e;
   font-size: 2rem;
-    margin: 0;
+  margin: 0;
 }
 
 .title {
   width: 50%;
 }
-
+/* .login-user {
+  width: 20%;
+} */
 .login {
-  width: 100%;
+  background-color: var(--main-color);
+  color: beige;
+  width: 50%;
   padding: 0.5rem;
   font-size: 1.2rem;
   border: none;
-  border-radius: 10px;
-  background-color: #5ebc5e;
-  color: beige;
 }
 
 @media only screen and (max-width: 768px) {
-  .logo {
+  /* .logo {
     width: 12%;
     height: auto;
-  }
+  } */
 
   .main-title {
     margin: 0;
-    font-size: 1.5rem
+    font-size: 1.5rem;
   }
 
   .login {
-    width: 100%;
-    padding: 0.2rem;
+    width: 60%;
     font-size: 1rem;
+  }
+}
+@media only screen and (max-width: 425px) {
+  .login-user {
+    width: 30%;
+  }
+
+  .logo {
+    width: 15%;
+  }
+}
+@media only screen and (max-width: 320px) {
+  header{
+    height: 70px;
+  }
+  .login-user {
+    width: 40%;
   }
 }

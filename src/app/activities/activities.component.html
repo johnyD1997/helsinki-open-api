@@ -19,85 +19,60 @@
 
   </section>
 
+
+  
 <section class="gridcards">
 
-    <article class="eventcard" *ngFor="let activity of activityList?.data | filter: term | paginate: { itemsPerPage: 12, currentPage: p }">
-        <div class="article-wrapper" >
-              
-                    <figure>
-                    <img src="{{ activity.description.images[0]?.url }}" >
-                    </figure>
-
-          <div class="article-body">
+  <div class="card border-dark eventcard m-2" style="max-width: 22rem;" *ngFor="let activity of activityList?.data | filter: term | paginate: { itemsPerPage: 12, currentPage: p }">
+    <span *ngIf="activity.description.images[0]?.url.length!">
+    <img src="{{ activity.description.images[0]?.url }}" class="card-img-top" alt="{{ activity?.name?.fi }}">
+    </span>
+    <div class="card-body">
+      <h2 class="card-title">{{ activity?.name?.fi }}</h2>
+      <h5 class="card-title">{{ activity.event_dates?.starting_day | date:'MMMM d, y, H:mm' }}
+      </h5>
+      <h5 class="card-title">
+        <a href="{{ activity?.info_url }}" class="read-more">
+          <!--EI NÄY LUE LISÄÄ linkki jos URL on tyhjä!-->
+          <span *ngIf="activity?.info_url?.length!">
+              Lue lisää >
+          </span>
+        </a>
+      </h5>
+      <hr>
+      <p class="card-text">{{ activity.description?.body | slice:0:200}}
+      </p>
+    </div>
+    <ul class="list-group list-group-flush">
+      <li class="list-group-item muted"><fa-icon [icon]="Globe"></fa-icon> {{ activity.location.address?.street_address }}, {{ activity.location.address?.postal_code }}, 
+        {{ activity.location.address?.locality }}
+      </li>
+    </ul>
+    <div class="card-body">
+        <button class="btn_favourite" (click)="addToFavorites(activity.name?.fi, activity.id, activity.info_url, (activity.location?.address?.street_address + ', ' + activity.location?.address?.locality), activity.description?.images[0]?.url)">Add to favorite
+          <fa-icon [icon]="Star"></fa-icon>
+        </button> 
+    <p>
+      <fa-icon [icon]="Hashtag"></fa-icon>
+      <span class="badge bg-primary badge-pill">
+      {{ activity.tags[0]?.name }}
+      </span>
+  
+      <span class="badge bg-secondary badge-pill" *ngIf="activity.tags[1]?.name.length!">  
+      {{ activity.tags[1]?.name }}
+      </span>
+  
+      <span class="badge bg-warning badge-pill" *ngIf="activity.tags[2]?.name.length!">  
+      {{ activity.tags[2]?.name }}
+      </span>
     
-            <span><svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" fill="currentColor" class="bi bi-heart" viewBox="0 0 16 16">
-                <path d="m8 2.748-.717-.737C5.6.281 2.514.878 1.4 3.053c-.523 1.023-.641 2.5.314 4.385.92 1.815 2.834 3.989 6.286 6.357 3.452-2.368 5.365-4.542 6.286-6.357.955-1.886.838-3.362.314-4.385C13.486.878 10.4.28 8.717 2.01L8 2.748zM8 15C-7.333 4.868 3.279-3.04 7.824 1.143c.06.055.119.112.176.171a3.12 3.12 0 0 1 .176-.17C12.72-3.042 23.333 4.867 8 15z"/>
-              </svg></span>
-              <h4> 
-                {{ activity.event_dates?.starting_day | date:'MMMM d, y, H:mm' }}
-              </h4>
-    <hr>
-            <h2>{{ activity?.name?.fi }}</h2>
-            <p>
-              {{ activity.description?.body | slice:0:200}}..
-          </p>
-          <hr>
-            <h3>{{ activity.location.address?.street_address }}, {{ activity.location.address?.postal_code }}, 
-                {{ activity.location.address?.locality }}</h3>
-                <!--
-                <p>Location LAT: {{ activity.location?.lat }}</p>
-                <p>Location LON: {{ activity.location?.lon }}</p>
-                -->
-            <p>
-                {{ activity.description?.intro }}
-            </p>
-            <p> <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" fill="currentColor" class="bi bi-hash" viewBox="0 0 16 16">
-                <path d="M8.39 12.648a1.32 1.32 0 0 0-.015.18c0 .305.21.508.5.508.266 0 .492-.172.555-.477l.554-2.703h1.204c.421 0 .617-.234.617-.547 0-.312-.188-.53-.617-.53h-.985l.516-2.524h1.265c.43 0 .618-.227.618-.547 0-.313-.188-.524-.618-.524h-1.046l.476-2.304a1.06 1.06 0 0 0 .016-.164.51.51 0 0 0-.516-.516.54.54 0 0 0-.539.43l-.523 2.554H7.617l.477-2.304c.008-.04.015-.118.015-.164a.512.512 0 0 0-.523-.516.539.539 0 0 0-.531.43L6.53 5.484H5.414c-.43 0-.617.22-.617.532 0 .312.187.539.617.539h.906l-.515 2.523H4.609c-.421 0-.609.219-.609.531 0 .313.188.547.61.547h.976l-.516 2.492c-.008.04-.015.125-.015.18 0 .305.21.508.5.508.265 0 .492-.172.554-.477l.555-2.703h2.242l-.515 2.492zm-1-6.109h2.266l-.515 2.563H6.859l.532-2.563z"/>
-              </svg>
-              <br>
-              <span class="badge bg-primary badge-pill">
-                {{ activity.tags[0]?.name }}
-              </span>
-                <br> 
-                <span class="badge bg-secondary badge-pill" *ngIf="activity.tags[1]?.name.length!">  
-                {{ activity.tags[1]?.name }}
-                </span>
-                <br>
-                <span class="badge bg-warning badge-pill" *ngIf="activity.tags[2]?.name.length!">  
-                  {{ activity.tags[2]?.name }}
-                  </span>
-                  <br>
-                  <span class="badge bg-info badge-pill" *ngIf="activity.tags[3]?.name.length!">  
-                    {{ activity.tags[3]?.name }}
-                    </span>
-
-
-            </p>
-
-                    <a href="{{ activity?.info_url }}" class="read-more">
-
-                      <!--EI NÄY LUE LISÄÄ linkki jos URL on tyhjä!-->
-                      <span *ngIf="activity?.info_url?.length!">
-                          Lue lisää 
-                          <span class="sr-only">about this is some title</span>
-                          <svg xmlns="http://www.w3.org/2000/svg" class="icon" viewBox="0 0 20 20" fill="currentColor">
-                          <path fill-rule="evenodd" d="M12.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-2.293-2.293a1 1 0 010-1.414z" clip-rule="evenodd" />
-                          </svg>
-                      </span>
-                    </a>
-          </div>
-        </div>
-       
-      </article>
-    
-    </section>
-
-
-
-
-
-
-
+      <span class="badge bg-info badge-pill" *ngIf="activity.tags[3]?.name.length!">  
+      {{ activity.tags[3]?.name }}
+      </span>
+    </p>
+    </div>
+    </div>
+</section>
 
 <pagination-controls 
 (pageChange)="p = $event" 
@@ -107,12 +82,4 @@ class="sivunumerot">
 </pagination-controls>
 
 
-
-<!--
-    Kuvan haku JSONista esimerkki:
-
-<div *ngFor="let i of activityList.data">
-        <figure class="small-img"><img src="{{i.description.images[0].url}}">
-        </figure>
-</div>
--->
+</section>

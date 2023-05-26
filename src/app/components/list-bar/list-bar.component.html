@@ -1,36 +1,15 @@
-<section class="list-bar">
-  <section class="show-list btn">
-    <button
-      class="btn rounded-circle list"
-      type="button"
-      data-bs-toggle="offcanvas"
-      data-bs-target="#offcanvasWithBothOptions"
-      aria-controls="offcanvasWithBothOptions"
-    >
-      <i class="bi bi-list"></i>
-    </button>
-  </section>
+<section class="list-bar d-flex flex-column">
+  <app-carousel></app-carousel>
 
-  <div
-    class="offcanvas offcanvas-start"
-    data-bs-scroll="true"
-    tabindex="-1"
-    id="offcanvasWithBothOptions"
-    aria-labelledby="offcanvasWithBothOptionsLabel"
-  >
-    <div class="offcanvas-header">
-      <h5 class="offcanvas-title" id="offcanvasWithBothOptionsLabel">
-        Places of interest
-      </h5>
-      <button
-        type="button"
-        class="btn-close"
-        data-bs-dismiss="offcanvas"
-        aria-label="Close"
-      ></button>
+  <article  *ngFor="let place of placesContent" class="card mt-3">
+    <img src="{{place.description.images[0]?.url}}" class="card-img-top" alt="...">
+    <div class="card-body">
+      <h5 class="card-title">{{ place.name.fi }}</h5>
+      <section class="info d-flex justify-content-between">
+      <p class="card-text">{{ place.location.address?.street_address}}</p>
+      <div><i class="bi bi-heart-fill"></i></div>
+    </section>
     </div>
-    <div class="offcanvas-body">
-     <p>There is a list of places</p>
-    </div>
-  </div>
+  </article>
+
 </section>

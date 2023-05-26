@@ -3,6 +3,8 @@ import { ActivityService } from '../activity.service';
 import { EventService } from '../event.service';
 import { PlaceService } from '../place.service';
 import { MatSnackBar, MatSnackBarHorizontalPosition, MatSnackBarVerticalPosition } from '@angular/material/snack-bar';
+import { Place } from 'src/models/place';
+import { FavoritesService } from '../services/favorites.service';
 
 
 @Component({
@@ -32,7 +34,8 @@ tomorrow2Date = new Date(this.today.setDate(this.today.getDate() + 1)); // ylihu
 
   constructor(private activityservice : ActivityService, 
     private eventservice : EventService, private placeservice : PlaceService,
-    private _huomioBar: MatSnackBar) {}
+    private _huomioBar: MatSnackBar,
+    private favoritesService: FavoritesService) {}
 
   activityList : any;
   eventList : any;
@@ -129,6 +132,19 @@ changeToday(){
   }
   changeReset() {
     this.term = '';
+  }
+
+  addToFavorites(_name: string, _id: string, _url: string, _vicinity: string, _photo: string){
+    let place: Place = {
+      photo: _photo,
+      name: _name,
+      id: _id,
+      url: _url,
+      vicinity: _vicinity,
+    }
+
+    this.favoritesService.addToFavorites(place)
+    console.log('Adding to favorite')
   }
 
 

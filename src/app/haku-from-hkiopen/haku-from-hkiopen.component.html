@@ -25,107 +25,79 @@ type="text"
 class="searchTerm"
 placeholder="kirjoita hakusana.."/>
 
-
   <!--buttons events-->
   <button (click)="changeTermHeavyMetal()" class="btn button-pink">Heavy Metal</button>
   <button (click)="changeTermRock()" class="btn button-pink">Rock</button>
   <button (click)="changeTermHiphop()" class="btn button-pink">Hip Hop</button>
 
-<button (click)="changeTermEducation()" class="btn button-pink">Education</button>
-<button (click)="changeTermGeneral()" class="btn button-pink">General</button>
+  <button (click)="changeTermEducation()" class="btn button-pink">Education</button>
+  <button (click)="changeTermGeneral()" class="btn button-pink">General</button>
 
+  <button class="btn button-outline-orange" type="submit" (click)="changeToday()"
+  >{{currentDate | date:'dd.MM.yyyy'}} Tänään</button>
 
+  <button class="btn button-outline-orange" type="submit" (click)="changeToday1()"
+  >{{tomorrowDate | date:'dd.MM.yyyy'}} Huomenna</button>
 
-<button class="btn button-outline-orange" type="submit" (click)="changeToday()"
->{{currentDate | date:'dd.MM.yyyy'}} Tänään</button>
+  <button class="btn button-outline-orange" type="submit" (click)="changeToday2()"
+  >{{tomorrow2Date | date:'dd.MM.yyyy'}} Ylihuomenna</button>
 
-<button class="btn button-outline-orange" type="submit" (click)="changeToday1()"
->{{tomorrowDate | date:'dd.MM.yyyy'}} Huomenna</button>
-
-<button class="btn button-outline-orange" type="submit" (click)="changeToday2()"
->{{tomorrow2Date | date:'dd.MM.yyyy'}} Ylihuomenna</button>
-
-<button (click)="changeReset()" class="btn button-outline-violet">Kaikki</button>
-</section>
+  <button (click)="changeReset()" class="btn button-outline-violet">Kaikki</button>
+  </section>
 
 
 
 <section class="gridcards">
 
-<article class="eventcard" *ngFor="let event of EventList?.data | filter: term | paginate: { itemsPerPage: 12, currentPage: p }">
-    <div class="article-wrapper">
-      <figure>
-        <img src="{{ event.description.images[0]?.url }}">
-      </figure>
-      <div class="article-body">
-
-        <span><svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" fill="currentColor" class="bi bi-heart" viewBox="0 0 16 16">
-            <path d="m8 2.748-.717-.737C5.6.281 2.514.878 1.4 3.053c-.523 1.023-.641 2.5.314 4.385.92 1.815 2.834 3.989 6.286 6.357 3.452-2.368 5.365-4.542 6.286-6.357.955-1.886.838-3.362.314-4.385C13.486.878 10.4.28 8.717 2.01L8 2.748zM8 15C-7.333 4.868 3.279-3.04 7.824 1.143c.06.055.119.112.176.171a3.12 3.12 0 0 1 .176-.17C12.72-3.042 23.333 4.867 8 15z"/>
-          </svg></span>
-
-
-          <h4 > 
-            {{ event.event_dates?.starting_day | date:'MMMM d, y, H:mm' }}
-          </h4> 
-<hr>
-        <h2>{{ event?.name?.fi }}</h2>
-        <h4>
-          <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" fill="currentColor" class="bi bi-geo-alt" viewBox="0 0 16 16">
-            <path d="M12.166 8.94c-.524 1.062-1.234 2.12-1.96 3.07A31.493 31.493 0 0 1 8 14.58a31.481 31.481 0 0 1-2.206-2.57c-.726-.95-1.436-2.008-1.96-3.07C3.304 7.867 3 6.862 3 6a5 5 0 0 1 10 0c0 .862-.305 1.867-.834 2.94zM8 16s6-5.686 6-10A6 6 0 0 0 2 6c0 4.314 6 10 6 10z"/>
-            <path d="M8 8a2 2 0 1 1 0-4 2 2 0 0 1 0 4zm0 1a3 3 0 1 0 0-6 3 3 0 0 0 0 6z"/>
-          </svg>
-          
-          {{ event.location.address?.street_address }}, {{ event.location.address?.postal_code }}, 
-            {{ event.location.address?.locality }}</h4>
-            <!--
-            <p>Location LAT: {{ event.location?.lat }}</p>
-            <p>Location LON: {{ event.location?.lon }}</p>
-            -->
-        <p>
-            {{ event.description?.intro | slice:0:200}}
-        </p>
-
-        <hr>
-        <p> <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" fill="currentColor" class="bi bi-hash" viewBox="0 0 16 16">
-            <path d="M8.39 12.648a1.32 1.32 0 0 0-.015.18c0 .305.21.508.5.508.266 0 .492-.172.555-.477l.554-2.703h1.204c.421 0 .617-.234.617-.547 0-.312-.188-.53-.617-.53h-.985l.516-2.524h1.265c.43 0 .618-.227.618-.547 0-.313-.188-.524-.618-.524h-1.046l.476-2.304a1.06 1.06 0 0 0 .016-.164.51.51 0 0 0-.516-.516.54.54 0 0 0-.539.43l-.523 2.554H7.617l.477-2.304c.008-.04.015-.118.015-.164a.512.512 0 0 0-.523-.516.539.539 0 0 0-.531.43L6.53 5.484H5.414c-.43 0-.617.22-.617.532 0 .312.187.539.617.539h.906l-.515 2.523H4.609c-.421 0-.609.219-.609.531 0 .313.188.547.61.547h.976l-.516 2.492c-.008.04-.015.125-.015.18 0 .305.21.508.5.508.265 0 .492-.172.554-.477l.555-2.703h2.242l-.515 2.492zm-1-6.109h2.266l-.515 2.563H6.859l.532-2.563z"/>
-          </svg>
-          <br>
-      <span class="badge bg-primary badge-pill">
-        {{ event.tags[0]?.name }}
-      </span>
-        <br> 
-        <span class="badge bg-secondary badge-pill" *ngIf="event.tags[1]?.name.length!">  
-        {{ event.tags[1]?.name }}
-        </span>
-        <br>
-        <span class="badge bg-warning badge-pill" *ngIf="event.tags[2]?.name.length!">  
-          {{ event.tags[2]?.name }}
-          </span>
-          <br>
-          <span class="badge bg-info badge-pill" *ngIf="event.tags[3]?.name.length!">  
-            {{ event.tags[3]?.name }}
-            </span>
-
-      </p>
+  <div class="card border-dark mb-3 eventcard" style="max-width: 22rem;" *ngFor="let event of EventList?.data | filter: term | paginate: { itemsPerPage: 12, currentPage: p }">
+    <span *ngIf="event.description.images[0]?.url.length!">
+    <img src="{{ event.description.images[0]?.url }}" class="card-img-top" alt="{{ event?.name?.fi }}">
+    </span>
+    <div class="card-body">
+      <h2 class="card-title">{{ event?.name?.fi }}</h2>
+      <h5 class="card-title">{{ event.event_dates?.starting_day | date:'MMMM d, y, H:mm' }}
+      </h5>
+      <h5 class="card-title">
         <a href="{{ event?.info_url }}" class="read-more">
-
           <!--EI NÄY LUE LISÄÄ linkki jos URL on tyhjä!-->
           <span *ngIf="event?.info_url?.length!">
-              Lue lisää 
-              <span class="sr-only">about this is some title</span>
-              <svg xmlns="http://www.w3.org/2000/svg" class="icon" viewBox="0 0 20 20" fill="currentColor">
-              <path fill-rule="evenodd" d="M12.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-2.293-2.293a1 1 0 010-1.414z" clip-rule="evenodd" />
-              </svg>
+              Lue lisää >
           </span>
-        
         </a>
-    
-        
-      </div>
+      </h5>
+      <hr>
+      <p class="card-text">{{ event.description?.intro | slice:0:200}}
+      </p>
     </div>
-   
-  </article>
-
+    <ul class="list-group list-group-flush">
+      <li class="list-group-item muted"><fa-icon [icon]="Globe"></fa-icon> {{ event.location.address?.street_address }}, {{ event.location.address?.postal_code }}, 
+        {{ event.location.address?.locality }}
+      </li>
+    </ul>
+    <div class="card-body">
+        <button class="btn_favourite" (click)="addToFavorites(event.name.fi, event.id, event.info_url, (event.location?.address?.street_address + ', ' + event.location?.address?.locality), event.description.images[0]?.url)">Add to favorite
+          <fa-icon [icon]="Star"></fa-icon>
+        </button> 
+    <p>
+      <fa-icon [icon]="Hashtag"></fa-icon>
+      <span class="badge bg-primary badge-pill">
+      {{ event.tags[0]?.name }}
+      </span>
+  
+      <span class="badge bg-secondary badge-pill" *ngIf="event.tags[1]?.name.length!">  
+      {{ event.tags[1]?.name }}
+      </span>
+  
+      <span class="badge bg-warning badge-pill" *ngIf="event.tags[2]?.name.length!">  
+      {{ event.tags[2]?.name }}
+      </span>
+    
+      <span class="badge bg-info badge-pill" *ngIf="event.tags[3]?.name.length!">  
+      {{ event.tags[3]?.name }}
+      </span>
+    </p>
+    </div>
+    </div>
 </section>
 
 <pagination-controls 
@@ -134,5 +106,4 @@ previousLabel="Edellinen"
 nextLabel="Seuraava"
 class="sivunumerot">
 </pagination-controls>
-
 </section>

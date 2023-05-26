@@ -1,1 +1,45 @@
-<p>favorites works!</p>
+<section
+  *ngIf="favoritePlaces.length; else noFavorites"
+  class="row overflow-auto mt-4"
+  
+>
+  <div
+    *ngFor="let place of favoritePlaces"
+    class="col-12 col-md-6 col-xl-4 col-xxl-3"
+  >
+    <div class="card">
+          <img
+          *ngIf="place.photo || place.photo === null"
+          [src]="place.photo"
+          class="card-img-top"
+          onerror="this.src='assets/images.jpeg'"
+        />
+      <div class="card-body">
+        <div class="d-flex flex-row justify-content-between">
+          <h5 class="card-title">{{ place.name }}</h5>
+          <a href="{{place.url}}"><i class="bi bi-box-arrow-up-right"></i></a>
+        </div>
+        <div *ngIf="place.vicinity" class="d-flex flex-row gap-1">
+          <i class="bi bi-geo-alt"></i>
+          <p>{{ place.vicinity }}</p>
+        </div>
+        <button
+          type="button"
+          class="btn btn-danger"
+          (click)="deleteFavorite(place.id!)">
+          <i class="bi bi-trash3-fill"></i>
+          Remove
+        </button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- if no favorites then show this -->
+
+<ng-template #noFavorites>
+  <div class="alert alert-primary d-flex gap-2 align-items-center" role="alert">
+    <i class="bi bi-exclamation-triangle-fill"></i>
+    <div class="no-favorites">No favorites found</div>
+  </div>
+</ng-template>

@@ -1,13 +1,14 @@
-<section class="container">
+<section>
   <header
-    class="d-flex flex-row align-items-center justify-content-between mb-2 border-bottom"
+    class="d-flex flex-row align-items-center justify-content-between border-bottom ms-2 me-2"
   >
     <section class="d-flex align-items-center title">
       <img [src]="imgUrl" alt="" class="logo" />
       <p class="main-title"[routerLink]="['']">Locally</p>
     </section>
-    
-    <app-weather></app-weather>
+    <div *ngIf="!(hasRoute('login') || hasRoute('sign-up'))">
+      <app-weather></app-weather>
+    </div>
     <article class="login-user">
       <app-account-icon *ngIf="auth.user | async"></app-account-icon>
       <button *ngIf="!(auth.user | async)"class="btn login" [routerLink]="['/login']" routerLinkActive="router-link-active" >Login</button>

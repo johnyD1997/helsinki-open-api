@@ -1,6 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivityService } from '../activity.service';
 import { MatSnackBar, MatSnackBarHorizontalPosition, MatSnackBarVerticalPosition } from '@angular/material/snack-bar';
+import { faStar, faHashtag, faGlobe } from '@fortawesome/free-solid-svg-icons';
+import { Place } from 'src/models/place';
+import { FavoritesService } from '../services/favorites.service';
 
 
 @Component({
@@ -10,7 +13,12 @@ import { MatSnackBar, MatSnackBarHorizontalPosition, MatSnackBarVerticalPosition
 })
 export class ActivitiesComponent implements OnInit {
 
-  constructor (private hpservice : ActivityService, private _huomioBar: MatSnackBar) {}
+  constructor (private hpservice : ActivityService, private _huomioBar: MatSnackBar, private favoritesService: FavoritesService) {}
+
+  Star = faStar;
+  Hashtag = faHashtag;
+  Globe = faGlobe;
+
 
   activityList : any;
   p: number = 1;
@@ -48,6 +56,19 @@ export class ActivitiesComponent implements OnInit {
   }
   changeReset() {
     this.term = '';
+  }
+
+  addToFavorites(_name: string, _id: string, _url: string, _vicinity: string, _photo: string){
+    let place: Place = {
+      photo: _photo,
+      name: _name,
+      id: _id,
+      url: _url,
+      vicinity: _vicinity,
+    }
+
+    this.favoritesService.addToFavorites(place)
+    console.log('Adding to favorite')
   }
 
 }

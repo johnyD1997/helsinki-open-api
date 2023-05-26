@@ -12,12 +12,14 @@
             <section class= "info form-floating">
                 <input type="password" class="fields form-control" placeholder="password" id="floatingPassword" formControlName="password" autocomplete="current-password">
                 <label for="floatingPassword">Password</label>
-            </section>
-            <section class="flex-forgot-register">
-                <a href="">Forgot password?</a> 
-                <a routerLink="/sign-up" ariaCurrentWhenActive="page" >Create account</a>
+                <p *ngIf="this.firebaseError">
+                <small class="text-danger">login or password is incorrect, please try again.</small>
+                </p>
             </section>
             <button type="submit" class="btn submit__button" >LOGIN</button>
+            <section class="d-flex justify-content-center">
+                <a routerLink="/sign-up" ariaCurrentWhenActive="page">Create account</a>
+            </section>
         </form>
         <div class="line__between">
             <span class="textline">OR</span>
