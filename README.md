@@ -17,7 +17,7 @@ Here is what we have made:
 
 ## Links 🔵
 
-[Open API Helsinki](https://open-api.myhelsinkifi/) ➜<br>
+[Open API Helsinki](https://open-api.myhelsinki.fi/) ➜<br>
 [Weather API](https://www.weatherapi.com/) ➜
 
 
